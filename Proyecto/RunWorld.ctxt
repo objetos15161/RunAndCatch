@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.params=
+comment0.target=RunWorld()
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ RunWorld.\r\n\ \r\n
+comment1.params=
+comment1.target=void\ prepararObjetos()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ arena()
+comment4.params=
+comment4.target=void\ cambiaNivel()
+comment5.params=
+comment5.target=void\ nivel1()
+comment6.params=
+comment6.target=void\ nivel2()
+numComments=7
