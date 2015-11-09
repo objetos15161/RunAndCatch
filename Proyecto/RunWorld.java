@@ -114,6 +114,7 @@ public class RunWorld extends World
     public void nivel2()
     {
        n=Greenfoot.getRandomNumber(500); 
+       setBackground("fondo2.jpg");
        if(band==1)
        {
             if(helado.verifica()==1)
