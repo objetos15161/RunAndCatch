@@ -19,14 +19,15 @@ public class Hamster extends Actor
         b=verifica();
         move(-5);
     }    
+
     public int verifica()
     {
-     int x;
-     x=getX();
-     if(x<50)
-        return(1);
-     else
-        return(0);
+        int x;
+        x=getX();
+        if(x<50)
+            return(1);
+        else
+            return(0);
     }
 
 }

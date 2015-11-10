@@ -19,10 +19,12 @@ public class Reloj extends Actor
         valor = new Counter("Tiempo: ");
         timer = new SimpleTimer();
     }
+
     protected void addedToWorld(World mundo)
     {
         mundo.addObject(valor,400,50);
     }
+
     public void act() 
     {
         // Add your action code here.

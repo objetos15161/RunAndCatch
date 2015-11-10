@@ -18,6 +18,7 @@ public class Crank extends Actor
     {
         CheckKeys();
     }    
+
     public void CheckKeys()
     {
         x=getX();
@@ -32,7 +33,7 @@ public class Crank extends Actor
         }
         /*else if (Greenfoot.isKeyDown("Spacebar"))
         {
-            
+
         }*/
     }
 }

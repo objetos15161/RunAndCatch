@@ -15,6 +15,6 @@ public class Helado extends Hamster
      */
     public void act() 
     {
-       b=super.verifica();
+       b=verifica();
     }    
 }

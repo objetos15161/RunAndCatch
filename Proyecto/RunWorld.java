@@ -14,18 +14,18 @@ public class RunWorld extends World
 
     private int valor=0;
     private SimpleTimer reloj;
-    
+
     private Counter cadReloj;
-    
+
     private Hamster hamster;
     private Helado helado;
     private Perezoso perezoso;
     private Ardiente ardiente;
     private ArenaScroll arena;
-    
+
     private Crank crank;
     private Counter nivel;
-    private int segundos;
+    private int segundos=0;
     /**
      * Constructor for objects of class RunWorld.
      * 
@@ -35,27 +35,29 @@ public class RunWorld extends World
         // Create a new world with 800x600 cells with a cell size of 1x1 pixels.
         super(800, 600, 1); 
         prepararObjetos();
-        addObject(crank,100,400);
+        addObject(crank,200,400);
         addObject(nivel,750,20);
+        addObject(cadReloj,500,30);
     }
+
     public void prepararObjetos()
     {
         crank = new Crank();
-        
+
         hamster = new Hamster();
         helado = new Helado();
         perezoso = new Perezoso();
         ardiente = new Ardiente();
-        
+
         reloj = new SimpleTimer();
-        
+
         cadReloj=new Counter("Tiempo:  ");
         cadReloj.setValue(0);//valor inicial de 60 segundos
 
         arena=new ArenaScroll();
-        
+
         nivel=new Counter("Nivel: ");
-        
+
     }
     public void act()
     {
@@ -63,6 +65,7 @@ public class RunWorld extends World
         addObject(cadReloj,400,50);
         arena();
     }
+
     public void arena()
     {
         int i;
@@ -80,51 +83,64 @@ public class RunWorld extends World
             a=0;
         }
     }
+
     public void cambiaNivel()
-    {   
-        if(valor==0)
+    {    
+        if(reloj.millisElapsed()>=1000)
+        {
+            reloj.mark();
+            cadReloj.add(1);
+            segundos++;
+            /* else 
+             * {
+             *     nivel2();
+             *  }           */
+        }
+        if(segundos<=59)
         {
                 nivel.setValue(1);
                 nivel1();
+                
         }
-        if(reloj.millisElapsed()>=60000)
+        else if(segundos>=60)
         {
+                removeObject(hamster);
+                nivel.setValue(2);
                 nivel2();
         }
-       /* else 
-        {
-                nivel2();
-        }        */
+        
     }
+
     public void nivel1()
     {
-       n=Greenfoot.getRandomNumber(500); 
-       if(band==1)
-       {
+        n=Greenfoot.getRandomNumber(500); 
+        if(band==1)
+        {
             if(hamster.verifica()==1)
-            removeObject(hamster);
+                removeObject(hamster);
             band=0;
-       }
-       else
-       {
+        }
+        else
+        {
             addObject(hamster,750,n);
             band=1;
-       }
+        }
     }
+
     public void nivel2()
     {
-       n=Greenfoot.getRandomNumber(500); 
-       setBackground("fondo2.jpg");
-       if(band==1)
-       {
+        n=Greenfoot.getRandomNumber(500); 
+        setBackground("fondo2.jpg");
+        if(band==1)
+        {
             if(helado.verifica()==1)
-            removeObject(helado);
+                removeObject(helado);
             band=0;
-       }
-       else
-       {
+        }
+        else
+        {
             addObject(helado,750,n);
             band=1;
-       }
+        }
     }
 }
