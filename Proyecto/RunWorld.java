@@ -21,6 +21,7 @@ public class RunWorld extends World
     private Helado helado;
     private Perezoso perezoso;
     private Ardiente ardiente;
+    private Rocoso rocoso;
     private ArenaScroll arena;
 
     private Crank crank;
@@ -48,7 +49,7 @@ public class RunWorld extends World
         helado = new Helado();
         perezoso = new Perezoso();
         ardiente = new Ardiente();
-
+        rocoso = new Rocoso();
         reloj = new SimpleTimer();
 
         cadReloj=new Counter("Tiempo:  ");
@@ -63,7 +64,18 @@ public class RunWorld extends World
     {
         cambiaNivel();
         addObject(cadReloj,400,50);
-        arena();
+        //arena();
+        if(reloj.millisElapsed()>=1000)
+        {
+            reloj.mark();
+            cadReloj.add(1);
+            segundos++;
+            
+            /* else 
+             * {
+             *     nivel2();
+             *  }           */
+        }
     }
 
     public void arena()
@@ -86,27 +98,26 @@ public class RunWorld extends World
 
     public void cambiaNivel()
     {    
-        if(reloj.millisElapsed()>=1000)
-        {
-            reloj.mark();
-            cadReloj.add(1);
-            segundos++;
-            /* else 
-             * {
-             *     nivel2();
-             *  }           */
-        }
         if(segundos<=59)
         {
                 nivel.setValue(1);
                 nivel1();
                 
         }
-        else if(segundos>=60)
+        else if((segundos>=60)&&(segundos<=119))
         {
-                removeObject(hamster);
                 nivel.setValue(2);
                 nivel2();
+        }
+        else if((segundos>=120)&&(segundos<=179))
+        {
+                nivel.setValue(3);
+                nivel3();
+        }
+        else if((segundos>=180)&&(segundos<=240))
+        {
+                nivel.setValue(4);
+                nivel4();
         }
         
     }
@@ -120,6 +131,10 @@ public class RunWorld extends World
                 removeObject(hamster);
             band=0;
         }
+        else if(segundos==59)
+        {
+            removeObject(hamster);
+        }
         else
         {
             addObject(hamster,750,n);
@@ -130,17 +145,65 @@ public class RunWorld extends World
     public void nivel2()
     {
         n=Greenfoot.getRandomNumber(500); 
-        setBackground("fondo2.jpg");
+        setBackground("fondo3.jpg");
         if(band==1)
         {
             if(helado.verifica()==1)
                 removeObject(helado);
             band=0;
         }
+        else if(segundos==119)
+        {
+            removeObject(helado);
+        }
         else
         {
             addObject(helado,750,n);
             band=1;
         }
+    }
+    public void nivel3()
+    {
+        n=Greenfoot.getRandomNumber(500); 
+        setBackground("fondo2.jpg");
+        if(band==1)
+        {
+            if(ardiente.verifica()==1)
+                removeObject(ardiente);
+            band=0;
+        }
+        else if(segundos==179)
+        {
+            removeObject(ardiente);
+        }
+        else
+        {
+            addObject(ardiente,750,n);
+            band=1;
+        }
+    }
+    public void nivel4()
+    {
+        n=Greenfoot.getRandomNumber(500); 
+        setBackground("fondo4.jpg");
+        if(band==1)
+        {
+            if(rocoso.verifica()==1)
+                removeObject(rocoso);
+            band=0;
+        }
+        else if(segundos==239)
+        {
+            removeObject(rocoso);
+        }
+        else
+        {
+            addObject(rocoso,750,n);
+            band=1;
+        }
+    }
+    public int dasegundos()
+    {
+        return(segundos);
     }
 }

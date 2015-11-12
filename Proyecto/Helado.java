@@ -16,5 +16,6 @@ public class Helado extends Hamster
     public void act() 
     {
        b=verifica();
+       move(-5);
     }    
 }

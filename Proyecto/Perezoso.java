@@ -12,8 +12,10 @@ public class Perezoso extends Hamster
      * Act - do whatever the Perezoso wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+    private int b;
     public void act() 
     {
-        // Add your action code here.
+        b=verifica();
+        move(-5);
     }    
 }

@@ -26,8 +26,11 @@ public class Hamster extends Actor
         x=getX();
         if(x<50)
             return(1);
+        
+        else if(isTouching(Crank.class))
+       
+            return(1);
         else
             return(0);
     }
-
 }
