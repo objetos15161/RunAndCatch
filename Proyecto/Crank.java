@@ -15,14 +15,35 @@ public class Crank extends Actor
     private int x;
     private int y;
     
-    private SimpleTimer reloj;
+    private SimpleTimer conteo;
     
+    private GreenfootImage in;
+    private GreenfootImage i1;
+    private GreenfootImage i2;
+    private GreenfootImage i3;
+    private GreenfootImage i4;
+    private GreenfootImage i5;
+    private GreenfootImage i6;
+    private GreenfootImage i7;
+    public Crank()
+    {
+        in=new GreenfootImage("1.png");
+        i1=new GreenfootImage("1.png");
+        i2=new GreenfootImage("2.png"); 
+        i3=new GreenfootImage("3.png"); 
+        i4=new GreenfootImage("4.png"); 
+        i5=new GreenfootImage("5.png"); 
+        i6=new GreenfootImage("6.png"); 
+        i7=new GreenfootImage("7.png"); 
+        conteo = new SimpleTimer();
+    }
     public void act() 
     {
         CheckKeys();
 
     }    
-
+    
+    
     public void CheckKeys()
     {
         x=getX();
@@ -50,22 +71,18 @@ public class Crank extends Actor
     }
     public void animacion()
     {
-       /* int i;
-        for(i=0;i<7;i++)
+        int i;
+        for(i=1;i<7;i++)
         {
-            if(reloj.millisElapsed()>100)
-            {
-                reloj.mark();
-                setImage(i+".png");
-            }
+            if(conteo.millisElapsed()>=1000)
+                conteo.mark();
+            setImage(i+".png");
         }
         for(i=7;i>0;i--)
         {
-            if(reloj.millisElapsed()>100)
-            {
-                reloj.mark();
-                setImage(i+".png");
-            }
-        }*/
+            if(conteo.millisElapsed()>=1000)
+                conteo.mark();
+            setImage(i+".png");
+        }
     }
 }

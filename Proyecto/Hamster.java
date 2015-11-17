@@ -17,7 +17,7 @@ public class Hamster extends Actor
     public void act() 
     {
         b=verifica();
-        move(-5);
+        move(-2);
     }    
 
     public int verifica()

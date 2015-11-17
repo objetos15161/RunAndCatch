@@ -80,20 +80,7 @@ public class RunWorld extends World
 
     public void arena()
     {
-        int i;
-        if(a==0)
-        {
-            addObject(arena,800,Greenfoot.getRandomNumber(500));
-            a=1;
-        }
-        else
-        {
-            if(arena.verifica()==1)
-            {
-                removeObject(arena);
-            }
-            a=0;
-        }
+        
     }
 
     public void cambiaNivel()
