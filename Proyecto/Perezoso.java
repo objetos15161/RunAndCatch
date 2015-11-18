@@ -16,6 +16,6 @@ public class Perezoso extends Hamster
     public void act() 
     {
         b=verifica();
-        move(-5);
+        move(-2);
     }    
 }

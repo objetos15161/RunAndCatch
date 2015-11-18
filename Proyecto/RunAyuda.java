@@ -23,13 +23,13 @@ public class RunAyuda extends World
     public void act()
     {
         setBackground("ayuda1.JPG");
-        Greenfoot.delay(500);
+        Greenfoot.delay(400);
         setBackground("ayuda2.JPG");
-        Greenfoot.delay(500);   
+        Greenfoot.delay(400);   
         setBackground("ayuda3.JPG");
-        Greenfoot.delay(500);
+        Greenfoot.delay(400);
         setBackground("ayuda4.JPG");
-        Greenfoot.delay(500);
+        Greenfoot.delay(400);
         Greenfoot.setWorld(new Menu());
                 
     }

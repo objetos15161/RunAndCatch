@@ -1,10 +1,9 @@
 #BlueJ class context
 comment0.params=
 comment0.target=Crank()
+comment0.text=private\ GreenfootImage\ in;\r\n\ \ \ \ private\ GreenfootImage\ i1;\r\n\ \ \ \ private\ GreenfootImage\ i2;\r\n\ \ \ \ private\ GreenfootImage\ i3;\r\n\ \ \ \ private\ GreenfootImage\ i4;\r\n\ \ \ \ private\ GreenfootImage\ i5;\r\n\ \ \ \ private\ GreenfootImage\ i6;\r\nprivate\ GreenfootImage\ i7;
 comment1.params=
 comment1.target=void\ act()
 comment2.params=
 comment2.target=void\ CheckKeys()
-comment3.params=
-comment3.target=void\ animacion()
-numComments=4
+numComments=3

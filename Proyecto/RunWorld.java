@@ -11,8 +11,10 @@ public class RunWorld extends World
     private int band;
     private int n=50;
     private int a=0;
+    private int niv;
 
     private int valor=0;
+
     private SimpleTimer reloj;
 
     private Counter cadReloj;
@@ -23,7 +25,11 @@ public class RunWorld extends World
     private Ardiente ardiente;
     private Rocoso rocoso;
     private ArenaScroll arena;
-
+    
+    private Arbol1 a1;
+    private Arbol2 a2;
+    private Arbol3 a3;
+    
     private Crank crank;
     private Counter nivel;
     private int segundos=0;
@@ -51,12 +57,13 @@ public class RunWorld extends World
         ardiente = new Ardiente();
         rocoso = new Rocoso();
         reloj = new SimpleTimer();
-
+        niv=1;
         cadReloj=new Counter("Tiempo:  ");
         cadReloj.setValue(0);//valor inicial de 60 segundos
 
         arena=new ArenaScroll();
 
+        
         nivel=new Counter("Nivel: ");
 
     }
@@ -64,45 +71,49 @@ public class RunWorld extends World
     {
         cambiaNivel();
         addObject(cadReloj,400,50);
-        //arena();
+        scroll();
         if(reloj.millisElapsed()>=1000)
         {
             reloj.mark();
             cadReloj.add(1);
             segundos++;
-            
-            /* else 
-             * {
-             *     nivel2();
-             *  }           */
         }
     }
 
-    public void arena()
+    public void scroll()
     {
-        
+        if ( Greenfoot.getRandomNumber(1100) < 12)
+            creaArbol1();
+        if ( Greenfoot.getRandomNumber(1100) < 8)
+            creaArbol2();
+        if ( Greenfoot.getRandomNumber(1100) < 10)
+            creaArbol3();    
     }
 
     public void cambiaNivel()
     {    
         if(segundos<=59)
         {
+                niv=1;
                 nivel.setValue(1);
                 nivel1();
                 
         }
         else if((segundos>=60)&&(segundos<=119))
         {
+                niv=2;
                 nivel.setValue(2);
                 nivel2();
         }
         else if((segundos>=120)&&(segundos<=179))
         {
+                niv=3;
                 nivel.setValue(3);
                 nivel3();
         }
         else if((segundos>=180)&&(segundos<=240))
         {
+                niv=4;
                 nivel.setValue(4);
                 nivel4();
         }
@@ -118,6 +129,8 @@ public class RunWorld extends World
                 removeObject(hamster);
             band=0;
         }
+       
+            
         else if(segundos==59)
         {
             removeObject(hamster);
@@ -189,8 +202,32 @@ public class RunWorld extends World
             band=1;
         }
     }
+    
+    private void creaArbol1()
+    {
+        Arbol1 a1= new Arbol1();
+        addObject(a1,800,540);
+    }
+    
+    private void creaArbol2()
+    {
+        Arbol2 a2= new Arbol2();
+        addObject(a2,800,560);
+    }
+    
+    private void creaArbol3()
+    {
+        Arbol3 a3= new Arbol3();
+        addObject(a3,800,550);
+    }
+    
     public int dasegundos()
     {
         return(segundos);
     }
+    public int danivel()
+    {
+        return(niv);
+    }
+    
 }
