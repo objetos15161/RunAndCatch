@@ -25,11 +25,16 @@ public class RunWorld extends World
     private Ardiente ardiente;
     private Rocoso rocoso;
     private ArenaScroll arena;
+
+    private Nivel1 niv1;
+    private Nivel2 niv2;
+    private Nivel3 niv3;
+    private Nivel4 niv4;
     
     private Arbol1 a1;
     private Arbol2 a2;
     private Arbol3 a3;
-    
+
     private Crank crank;
     private Counter nivel;
     private int segundos=0;
@@ -58,17 +63,24 @@ public class RunWorld extends World
         rocoso = new Rocoso();
         reloj = new SimpleTimer();
         niv=1;
-        cadReloj=new Counter("Tiempo:  ");
+        cadReloj = new Counter("Tiempo:  ");
         cadReloj.setValue(0);//valor inicial de 60 segundos
+        segundos=0;
+        arena = new ArenaScroll();
 
-        arena=new ArenaScroll();
-
+        niv1=new Nivel1();
+        niv2=new Nivel2();
+        niv3=new Nivel3();
+        niv4=new Nivel4();
         
         nivel=new Counter("Nivel: ");
 
     }
+
     public void act()
     {
+        if((segundos==0 && niv==1) || (segundos==60 && niv==2) || (segundos==120 && niv==3) || (segundos==180 && niv==4))
+                presenta();
         cambiaNivel();
         addObject(cadReloj,400,50);
         scroll();
@@ -94,30 +106,31 @@ public class RunWorld extends World
     {    
         if(segundos<=59)
         {
-                niv=1;
-                nivel.setValue(1);
-                nivel1();
-                
+            niv=1;
+            nivel.setValue(1);      
+            nivel1();
         }
+        
+                
         else if((segundos>=60)&&(segundos<=119))
         {
-                niv=2;
-                nivel.setValue(2);
-                nivel2();
+            niv=2;
+            nivel.setValue(2);
+            nivel2();
         }
         else if((segundos>=120)&&(segundos<=179))
         {
-                niv=3;
-                nivel.setValue(3);
-                nivel3();
+            niv=3;
+            nivel.setValue(3);
+            nivel3();
         }
         else if((segundos>=180)&&(segundos<=240))
         {
-                niv=4;
-                nivel.setValue(4);
-                nivel4();
+            niv=4;
+            nivel.setValue(4);
+            nivel4();
         }
-        
+
     }
 
     public void nivel1()
@@ -129,8 +142,7 @@ public class RunWorld extends World
                 removeObject(hamster);
             band=0;
         }
-       
-            
+
         else if(segundos==59)
         {
             removeObject(hamster);
@@ -162,6 +174,7 @@ public class RunWorld extends World
             band=1;
         }
     }
+
     public void nivel3()
     {
         n=Greenfoot.getRandomNumber(500); 
@@ -182,6 +195,7 @@ public class RunWorld extends World
             band=1;
         }
     }
+
     public void nivel4()
     {
         n=Greenfoot.getRandomNumber(500); 
@@ -202,32 +216,72 @@ public class RunWorld extends World
             band=1;
         }
     }
-    
+
     private void creaArbol1()
     {
         Arbol1 a1= new Arbol1();
         addObject(a1,800,540);
     }
-    
+
     private void creaArbol2()
     {
         Arbol2 a2= new Arbol2();
         addObject(a2,800,560);
     }
-    
+
     private void creaArbol3()
     {
         Arbol3 a3= new Arbol3();
         addObject(a3,800,550);
     }
-    
+
     public int dasegundos()
     {
         return(segundos);
     }
+
     public int danivel()
     {
         return(niv);
     }
-    
+
+    public void presenta()
+    {
+        if(niv==1)
+        {
+            addObject(niv1,400,300);
+            Greenfoot.delay(100);
+            removeObject(niv1);
+        }
+        else if(niv==2)
+        {
+            addObject(niv2,400,300);
+            Greenfoot.delay(100);
+            removeObject(niv2);
+        }
+        else if(niv==3)
+        { 
+            addObject(niv3,400,300);
+            Greenfoot.delay(100);
+            removeObject(niv3);
+        }
+        else if(niv==4)
+        {
+            addObject(niv4,400,300);
+            Greenfoot.delay(100);
+            removeObject(niv4);
+        }
+        
+
+    }
 }
+
+
+
+
+
+
+
+
+
+

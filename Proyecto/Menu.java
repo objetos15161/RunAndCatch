@@ -61,12 +61,12 @@ public class Menu extends World
                 Greenfoot.setWorld(new RunRecord());
             }
         }
-/*
+        
         if(Greenfoot.getMouseInfo()!=null){
-            if(Greenfoot.getMouseInfo().getButton()==1 && Greenfoot.getMouseInfo().getActor()==rec){
+            if(Greenfoot.getMouseInfo().getButton()==1 && Greenfoot.getMouseInfo().getActor()==cred){
                 Greenfoot.delay(5);
-                //Greenfoot.setWorld(new DiamondMarsRecords());
+                Greenfoot.setWorld(new RunCredito());
             }
-        }*/
+        }
     }
 }
