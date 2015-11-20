@@ -8,7 +8,6 @@ import greenfoot.*;
  */
 public class Hamster extends Actor
 {
-    private int b;
     private int r=10;
     private int seg;
     private int ran;
@@ -20,13 +19,13 @@ public class Hamster extends Actor
     public void act() 
     {
         RunWorld mundo = (RunWorld)getWorld();
-        b=verifica();
+        verifica();
         seg=mundo.dasegundos();
         move(-1);
         tambalea();
     }    
 
-    public int verifica()
+    public void verifica()
     {
         RunWorld mundo = (RunWorld)getWorld();
         
@@ -36,12 +35,18 @@ public class Hamster extends Actor
         if(seg%2==0)
             mundo.addObject(this,750,ran);
         
+        if(isTouching(Crank.class))
+        {
+            mundo.removeObject(this);
+        }
+        
+        if(seg==59)
+        {  
+            mundo.removeObject(this);
+        }
+            
         if(x<100)
             mundo.removeObject(this);
-        
-        else if(isTouching(Crank.class))
-            return(1);
-        return(0);
     }
     public void tambalea()
     {

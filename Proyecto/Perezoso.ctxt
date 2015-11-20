@@ -1,4 +1,8 @@
 #BlueJ class context
 comment0.params=
 comment0.target=void\ act()
-numComments=1
+comment1.params=
+comment1.target=void\ mueve()
+comment2.params=
+comment2.target=void\ verifica()
+numComments=3

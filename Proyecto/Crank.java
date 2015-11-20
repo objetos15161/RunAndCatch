@@ -40,12 +40,12 @@ public class Crank extends Actor
         if (Greenfoot.isKeyDown("Down"))
         {
             if(y<450)
-                setLocation(x,y+3);
+                setLocation(x,y+1);
         }
         else if (Greenfoot.isKeyDown("Up"))
         {
             if(y>120)
-                setLocation(x,y-3);
+                setLocation(x,y-1);
         }
         else if(Greenfoot.isKeyDown("d"))
         {
