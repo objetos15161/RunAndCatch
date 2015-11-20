@@ -17,5 +17,6 @@ public class Perezoso extends Hamster
     {
         b=verifica();
         move(-2);
+        tambalea();
     }    
 }

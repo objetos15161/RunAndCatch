@@ -25,6 +25,11 @@ public class RunWorld extends World
     private Ardiente ardiente;
     private Rocoso rocoso;
     private ArenaScroll arena;
+    
+    private Lobo1 lobo1;
+    private Lobo2 lobo2;
+    private Lobo3 lobo3;
+    private Lobo4 lobo4;
 
     private Nivel1 niv1;
     private Nivel2 niv2;
@@ -34,6 +39,11 @@ public class RunWorld extends World
     private Arbol1 a1;
     private Arbol2 a2;
     private Arbol3 a3;
+    
+    private GreenfootSound s1;
+    private GreenfootSound s2;
+    private GreenfootSound s3;
+    private GreenfootSound s4;
 
     private Crank crank;
     private Counter nivel;
@@ -49,12 +59,13 @@ public class RunWorld extends World
         prepararObjetos();
         addObject(crank,200,400);
         addObject(nivel,750,20);
-        addObject(cadReloj,500,30);
+
+        
     }
 
     public void prepararObjetos()
     {
-        crank = new Crank();
+        crank = new Crank(5,0);
 
         hamster = new Hamster();
         helado = new Helado();
@@ -67,7 +78,12 @@ public class RunWorld extends World
         cadReloj.setValue(0);//valor inicial de 60 segundos
         segundos=0;
         arena = new ArenaScroll();
-
+        
+        s1=new GreenfootSound("nivel1.mp3");
+        s2=new GreenfootSound("nivel2.mp3");
+        s3=new GreenfootSound("nivel3.mp3");
+        s4=new GreenfootSound("nivel4.mp3");
+        
         niv1=new Nivel1();
         niv2=new Nivel2();
         niv3=new Nivel3();
@@ -94,11 +110,11 @@ public class RunWorld extends World
 
     public void scroll()
     {
-        if ( Greenfoot.getRandomNumber(1100) < 12)
+        if ( Greenfoot.getRandomNumber(1000) < 5)
             creaArbol1();
-        if ( Greenfoot.getRandomNumber(1100) < 8)
+        if ( Greenfoot.getRandomNumber(1000) < 5)
             creaArbol2();
-        if ( Greenfoot.getRandomNumber(1100) < 10)
+        if ( Greenfoot.getRandomNumber(1000) < 3)
             creaArbol3();    
     }
 
@@ -247,33 +263,100 @@ public class RunWorld extends World
 
     public void presenta()
     {
+        int indi;
         if(niv==1)
         {
             addObject(niv1,400,300);
+            s1.play();
             Greenfoot.delay(100);
             removeObject(niv1);
+            indi=1;
+            crealobo(75,150,indi);
+            crealobo(45,200,indi);
+            crealobo(55,250,indi);
+            crealobo(25,300,indi);
+            crealobo(55,350,indi);
+            crealobo(45,400,indi);
+            indi=0;
         }
         else if(niv==2)
         {
+            s1.stop();
+            s2.play();
             addObject(niv2,400,300);
             Greenfoot.delay(100);
             removeObject(niv2);
+            indi=1;
+            crealobo(75,150,indi);
+            crealobo(45,200,indi);
+            crealobo(55,250,indi);
+            crealobo(25,300,indi);
+            crealobo(55,350,indi);
+            crealobo(45,400,indi);
+            indi=0;
         }
         else if(niv==3)
         { 
+            s2.stop();
+            s3.play();
             addObject(niv3,400,300);
             Greenfoot.delay(100);
             removeObject(niv3);
+            indi=1;
+            crealobo(75,150,indi);
+            crealobo(45,200,indi);
+            crealobo(55,250,indi);
+            crealobo(25,300,indi);
+            crealobo(55,350,indi);
+            crealobo(45,400,indi);
+            indi=0;
         }
         else if(niv==4)
         {
+            s3.stop();
+            s4.playLoop();
             addObject(niv4,400,300);
             Greenfoot.delay(100);
             removeObject(niv4);
+            indi=1;
+            crealobo(75,150,indi);
+            crealobo(45,200,indi);
+            crealobo(55,250,indi);
+            crealobo(25,300,indi);
+            crealobo(55,350,indi);
+            crealobo(45,400,indi);
+            indi=0;
         }
         
 
     }
+    public void crealobo(int x, int y,int indi)
+    {
+        if(indi==1)
+        {
+        if(niv==1)
+        {
+            lobo1 = new Lobo1();
+            addObject(lobo1,x,y);
+        }
+        else if(niv==2)
+        {
+            lobo2 = new Lobo2();
+            addObject(lobo2,x,y);
+        }
+        else if(niv==3)
+        {
+            lobo3 = new Lobo3();
+            addObject(lobo3,x,y);
+        }
+        else if(niv==4)
+        {
+            lobo4 = new Lobo4();
+            addObject(lobo4,x,y);
+        }
+    }
+
+}
 }
 
 

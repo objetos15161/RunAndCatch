@@ -9,6 +9,7 @@ import greenfoot.*;
 public class RunRecord extends World
 {
     private Salir salir;
+    private GreenfootSound fondo;
     /**
      * Constructor for objects of class RunRecord.
      * 
@@ -17,6 +18,7 @@ public class RunRecord extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1); 
+        fondo=new GreenfootSound("record.mp3");
         salir=new Salir();
         colocar();
     
@@ -27,10 +29,12 @@ public class RunRecord extends World
     }
     public void act()
     {
+        fondo.play();
          if(Greenfoot.getMouseInfo()!=null){ 
             if(Greenfoot.getMouseInfo().getButton()==1 && Greenfoot.getMouseInfo().getActor() == salir)
             {
                 Greenfoot.delay(30);
+                fondo.stop();
                 Greenfoot.setWorld(new Menu());
             }
 

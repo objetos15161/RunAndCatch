@@ -17,5 +17,6 @@ public class Ardiente extends Rocoso
     {
         b=verifica();
         move(-1);
+        tambalea();
     }    
 }

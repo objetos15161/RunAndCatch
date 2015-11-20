@@ -1,6 +1,6 @@
 #BlueJ class context
-comment0.params=
-comment0.target=Crank()
+comment0.params=vidas\ puntos
+comment0.target=Crank(int,\ int)
 comment1.params=
 comment1.target=void\ act()
 comment2.params=

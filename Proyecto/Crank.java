@@ -19,9 +19,11 @@ public class Crank extends Actor
     private SimpleTimer conteo;
     private int ini;
     private int mejora=0;
-    public Crank()
+    private GreenfootSound garra;
+    public Crank(int vidas, int puntos)
     {
         setImage("p1.png");
+        garra=new GreenfootSound("garra.mp3");
         conteo = new SimpleTimer();
     }
     public void act() 
@@ -47,13 +49,16 @@ public class Crank extends Actor
         }
         else if(Greenfoot.isKeyDown("d"))
         {
+           
            if(band==1)
-           { 
+           {
+               garra.play();
                activa();
                band=0;
            }
            else
            {   
+               garra.stop();
                desactiva();
                band=1;
            }

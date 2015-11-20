@@ -14,14 +14,16 @@ public class RunAyuda extends World
      * 
      */
     private int cuenta;
+    private GreenfootSound ayuda;
     public RunAyuda()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1); 
-    
+        ayuda=new GreenfootSound ("instru.mp3");
     }
     public void act()
     {
+        ayuda.play();
         setBackground("ayuda1.JPG");
         Greenfoot.delay(400);
         setBackground("ayuda2.JPG");
@@ -30,6 +32,7 @@ public class RunAyuda extends World
         Greenfoot.delay(400);
         setBackground("ayuda4.JPG");
         Greenfoot.delay(400);
+        ayuda.stop();
         Greenfoot.setWorld(new Menu());
                 
     }

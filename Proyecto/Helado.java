@@ -17,5 +17,6 @@ public class Helado extends Hamster
     {
        b=verifica();
        move(-1);
+       tambalea();
     }    
 }
