@@ -12,7 +12,7 @@ public class Perezoso extends Hamster
      * Act - do whatever the Perezoso wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    private int dir=-1;
+    private int dir=-2;
     private int band=0;
     private int ran;
     private int seg;
@@ -43,7 +43,7 @@ public class Perezoso extends Hamster
     public void verifica()
     {
         RunWorld mundo = (RunWorld)getWorld();
-        
+        Crank c = mundo.dimeCrank();   
         ran=Greenfoot.getRandomNumber(600);
         int x;
         x=getX();
@@ -53,16 +53,17 @@ public class Perezoso extends Hamster
         
         if(isTouching(Crank.class))
         {
+            c.aumentapuntos(15);
             mundo.removeObject(this);
         }
         
-        if(seg==59)
-        {  
+
+        if(x<100)
+        {
+            come();
+            c.restavidas();
             mundo.removeObject(this);
         }
-            
-        if(x<100)
-            mundo.removeObject(this);
                     
     }
 }

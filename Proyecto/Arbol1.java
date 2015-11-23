@@ -35,10 +35,13 @@ public class Arbol1 extends Scroll
         }
         else if(niv==3)
         {
-            setImage("arbolllamas1.png");
-            
-        }
+            setImage("arboldes1.png");
+        }    
         else if(niv==4)
+        {
+            setImage("arbolllamas1.png");
+        }
+        else if(niv==5)
         {
             setImage("vacio1.png");
         }

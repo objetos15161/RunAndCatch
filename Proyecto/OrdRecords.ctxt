@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.params=
+comment0.target=OrdRecords()
+comment1.params=pts
+comment1.target=void\ almacenaRecords(int)
+comment1.text=\r\n\ M\u00E9todo\ que\ define\ la\ manera\ en\ que\ se\ guardar\u00E1n\ los\ records\r\n
+numComments=2

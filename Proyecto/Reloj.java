@@ -22,7 +22,7 @@ public class Reloj extends Actor
 
     protected void addedToWorld(World mundo)
     {
-        mundo.addObject(valor,400,50);
+        mundo.addObject(valor,650,20);
     }
 
     public void act() 

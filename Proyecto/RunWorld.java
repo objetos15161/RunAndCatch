@@ -24,18 +24,20 @@ public class RunWorld extends World
     private Perezoso perezoso;
     private Ardiente ardiente;
     private Rocoso rocoso;
-    private ArenaScroll arena;
+
 
     private Lobo1 lobo1;
     private Lobo2 lobo2;
     private Lobo3 lobo3;
     private Lobo4 lobo4;
+    private Lobo5 lobo5;
 
     private Nivel1 niv1;
     private Nivel2 niv2;
     private Nivel3 niv3;
     private Nivel4 niv4;
-
+    private Nivel5 niv5;
+    
     private Arbol1 a1;
     private Arbol2 a2;
     private Arbol3 a3;
@@ -44,10 +46,23 @@ public class RunWorld extends World
     private GreenfootSound s2;
     private GreenfootSound s3;
     private GreenfootSound s4;
+    private GreenfootSound s5;
 
+    private GreenfootSound fin;
+    
     private Crank crank;
     private Counter nivel;
     private int segundos=0;
+    
+    private Bota bota;
+    private Garra garra;
+    private Vida vida;
+    private Bala bala;
+    
+    private GameOver gameover;
+    private int p;
+    private OrdRecords records;
+    private Salir salir;
     /**
      * Constructor for objects of class RunWorld.
      * 
@@ -58,30 +73,37 @@ public class RunWorld extends World
         super(800, 600, 1); 
         prepararObjetos();
         addObject(crank,200,400);
-        addObject(nivel,750,20);
+        addObject(nivel,520,20);
     }
 
     public void prepararObjetos()
     {
-        crank = new Crank(5,0);
+        crank = new Crank();
 
+        records=new OrdRecords();
+        
+        gameover=new GameOver();
         
         reloj = new SimpleTimer();
         niv=1;
         cadReloj = new Counter("Tiempo:  ");
         cadReloj.setValue(0);//valor inicial de 60 segundos
         segundos=0;
-        arena = new ArenaScroll();
 
         s1=new GreenfootSound("nivel1.mp3");
         s2=new GreenfootSound("nivel2.mp3");
         s3=new GreenfootSound("nivel3.mp3");
         s4=new GreenfootSound("nivel4.mp3");
-
+        s5=new GreenfootSound("nivel5.mp3");
+        fin=new GreenfootSound("fin.mp3");
+        
         niv1=new Nivel1();
         niv2=new Nivel2();
         niv3=new Nivel3();
         niv4=new Nivel4();
+        niv5=new Nivel5();
+        
+        salir = new Salir();
 
         nivel=new Counter("Nivel: ");
 
@@ -89,10 +111,17 @@ public class RunWorld extends World
 
     public void act()
     {
-        if((segundos==0 && niv==1) || (segundos==60 && niv==2) || (segundos==120 && niv==3) || (segundos==180 && niv==4))
+        if((segundos==0 && niv==1) || (segundos==60 && niv==2) || (segundos==120 && niv==3) || (segundos==180 && niv==4) || (segundos==240 && niv==5))
+        {
             presenta();
-        cambiaNivel();
-        addObject(cadReloj,400,50);
+            if(niv>1)
+                creamejoras();
+        }
+        if(Greenfoot.getRandomNumber(10000)<=3)
+            creavida();
+        if(Greenfoot.getRandomNumber(1000)<=1)
+            creabala();
+        addObject(cadReloj,720,20);
         scroll();
         if(reloj.millisElapsed()>=1000)
         {
@@ -100,15 +129,19 @@ public class RunWorld extends World
             cadReloj.add(1);
             segundos++;
         }
+        if(crank.davidas()==0)
+            findejuego();
+        p=crank.dapuntos();
+        cambiaNivel();
     }
 
     public void scroll()
     {
-        if ( Greenfoot.getRandomNumber(1000) < 5)
-            creaArbol1();
-        if ( Greenfoot.getRandomNumber(1000) < 5)
-            creaArbol2();
         if ( Greenfoot.getRandomNumber(1000) < 3)
+            creaArbol1();
+        if ( Greenfoot.getRandomNumber(1000) < 4)
+            creaArbol2();
+        if ( Greenfoot.getRandomNumber(1000) < 2)
             creaArbol3();    
     }
 
@@ -132,11 +165,17 @@ public class RunWorld extends World
             nivel.setValue(3);
             nivel3();
         }
-        else if((segundos>=180)&&(segundos<=240))
+        else if((segundos>=180)&&(segundos<=239))
         {
             niv=4;
             nivel.setValue(4);
             nivel4();
+        }
+        else if(segundos>=240)
+        {
+            niv=5;
+            nivel.setValue(5);
+            nivel5();
         }
 
     }
@@ -194,7 +233,7 @@ public class RunWorld extends World
         while(ran1>=100 && ran1<=500)
         {
             if(Greenfoot.getRandomNumber(5000)<=2)
-                creaardiente(ran1);
+                crearocoso(ran1);
             ran1=Greenfoot.getRandomNumber(500);
         }
     }
@@ -213,7 +252,45 @@ public class RunWorld extends World
         while(ran1>=100 && ran1<=500)
         {
             if(Greenfoot.getRandomNumber(5000)<=2)
-                crearocoso(ran1);
+                creaardiente(ran1);
+            ran1=Greenfoot.getRandomNumber(500);
+        }
+    }
+    
+    public void nivel5()
+    {
+        int ran=300;
+        int ran1=300;
+        int tipo;
+        setBackground("fondo5.jpg");
+        while(ran>=100 && ran<=500)
+        {
+            if(Greenfoot.getRandomNumber(5000)<=4)
+                creanormal(ran);
+            ran=Greenfoot.getRandomNumber(500);
+        }
+        while(ran1>=100 && ran1<=500)
+        {
+            if(Greenfoot.getRandomNumber(5000)<=2)
+            {
+                tipo=Greenfoot.getRandomNumber(3);
+                if(tipo==0)
+                {
+                    creaardiente(ran1);
+                }
+                else if(tipo==1)
+                {
+                    crearocoso(ran1);
+                }
+                else if(tipo==2)
+                {
+                    creahielo(ran1);
+                }
+                else
+                {
+                    creaperezoso(ran1);
+                }        
+            }
             ran1=Greenfoot.getRandomNumber(500);
         }
     }
@@ -294,6 +371,7 @@ public class RunWorld extends World
             crealobo(25,300,indi);
             crealobo(55,350,indi);
             crealobo(45,400,indi);
+            crealobo(25,300,indi);
             indi=0;
         }
         else if(niv==2)
@@ -311,6 +389,7 @@ public class RunWorld extends World
             crealobo(25,300,indi);
             crealobo(55,350,indi);
             crealobo(45,400,indi);
+            crealobo(25,300,indi);
             indi=0;
         }
         else if(niv==3)
@@ -330,6 +409,7 @@ public class RunWorld extends World
             crealobo(25,300,indi);
             crealobo(55,350,indi);
             crealobo(45,400,indi);
+            crealobo(25,300,indi);
             indi=0;
         }
         else if(niv==4)
@@ -349,6 +429,27 @@ public class RunWorld extends World
             crealobo(25,300,indi);
             crealobo(55,350,indi);
             crealobo(45,400,indi);
+            crealobo(25,300,indi);
+            indi=0;
+        }
+        else if(niv==5)
+        {
+            s4.stop();
+
+            addObject(niv5,400,300);
+            Greenfoot.delay(100);
+            removeObject(niv5);
+
+            s5.playLoop();
+            
+            indi=1;
+            crealobo(75,150,indi);
+            crealobo(45,200,indi);
+            crealobo(55,250,indi);
+            crealobo(25,300,indi);
+            crealobo(55,350,indi);
+            crealobo(45,400,indi);
+            crealobo(25,300,indi);
             indi=0;
         }
 
@@ -378,9 +479,65 @@ public class RunWorld extends World
                 lobo4 = new Lobo4();
                 addObject(lobo4,x,y);
             }
+            else if(niv==5)
+            {
+                lobo5 = new Lobo5();
+                addObject(lobo5,x,y);
+            }
         }
 
     }
-
+    
+    public void creavida()
+    {
+        int x;
+        x=Greenfoot.getRandomNumber(350);
+        vida = new Vida();
+        addObject(vida,750,x+120);
+    }
+    public void creabala()
+    {
+        int x;
+        x=Greenfoot.getRandomNumber(350);
+        bala = new Bala();
+        addObject(bala,750,x+120);
+    }
+    
+    public void creamejoras()
+    {
+        garra = new Garra();
+        bota = new Bota();
+        addObject(garra,750,200);
+        addObject(bota,750,400);
+    }
+    
+    public Crank dimeCrank()
+    {
+        return crank;
+    }
+    
+    public void findejuego()
+    {
+         s1.stop();
+         s2.stop();
+         s3.stop();
+         s4.stop();
+         s5.stop();
+         removeObjects(getObjects(Actor.class));
+         addObject(gameover,getWidth()/2,getHeight()/2);
+         addObject(salir,400,500);
+         records.almacenaRecords(p);
+         fin.play();
+         reloj.mark();
+         if(Greenfoot.getMouseInfo()!=null)
+         { 
+            if(Greenfoot.getMouseInfo().getButton()==1 && Greenfoot.getMouseInfo().getActor() == salir)
+            {
+             fin.stop();
+             
+             Greenfoot.setWorld(new Menu());
+            }
+        }
+    }
 }
 

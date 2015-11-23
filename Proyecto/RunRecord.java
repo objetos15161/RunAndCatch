@@ -10,6 +10,7 @@ public class RunRecord extends World
 {
     private Salir salir;
     private GreenfootSound fondo;
+    private ScoreBoard score;
     /**
      * Constructor for objects of class RunRecord.
      * 
@@ -18,6 +19,7 @@ public class RunRecord extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1); 
+        score=new ScoreBoard(600, 400);
         fondo=new GreenfootSound("record.mp3");
         salir=new Salir();
         colocar();
@@ -26,6 +28,7 @@ public class RunRecord extends World
     public void colocar()
     {
         addObject(salir,750,50);
+        addObject(score,400,300);
     }
     public void act()
     {
