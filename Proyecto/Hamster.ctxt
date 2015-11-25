@@ -1,6 +1,7 @@
 #BlueJ class context
 comment0.params=
 comment0.target=Hamster()
+comment0.text=\r\n\ EL\ constructor\ toma\ un\ numero\ random\ el\ cual\ ser\u00E1\ la\ velocidad\r\n\ de\ movimiento\ durante\ todo\ el\ trayecto\ del\ hamster\r\n
 comment1.params=
 comment1.target=void\ act()
 comment2.params=

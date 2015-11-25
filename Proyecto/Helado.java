@@ -1,10 +1,13 @@
 import greenfoot.*;
 
 /**
- * Write a description of class Helado here.
+ * Este actor tiene la peculiaridad de tener un escudo, el cual es la imagen que tiene
+ * al aparecer en la pantalla, para atraparlo debes tocar con el crank 2 veces.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Al tocar el escudo se escucha un sonido similiar a romper un vidrio.
+ * 
+ * @oscarvelarde
+ * @1 
  */
 public class Helado extends Hamster
 {

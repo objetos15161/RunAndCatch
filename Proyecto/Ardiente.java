@@ -1,36 +1,40 @@
 import greenfoot.*;
 
 /**
- * Write a description of class Ardiente here.
+ * La caracteristica de este hamster, es que cambia su imagen, pero
+ * no solo eso, si se toca cuando esta "en llamas" ralentiza al Crank
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Los puntos que recibas depende si lo tocas cuando esta en llamas o no.
+ * @oscarvelarde
+ * @1 
  */
 public class Ardiente extends Rocoso
 {
     /**
-     * Act - do whatever the Ardiente wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * La diferecia es la bandera que indica si esta encendido y apagado,
+     * y en base a esto ralentiza o no al Crank.
      */
     private SimpleTimer reloj;
     private int band=0;
     private int ran;
-    private GreenfootSound ral;
+
     public Ardiente()
     {
-        ral = new GreenfootSound("tocallamas.wav");
         reloj=new SimpleTimer();
         setImage("ardiente1.png");
     }
     
     public void act() 
     {
+        //despues de un lapso de tiempo normaliza al hamster
         if(band==0 && reloj.millisElapsed()>=800)
         {
             setImage("ardiente.png");
             reloj.mark();
             band=1;
         }
+        /*esto cambia la imagen a otro hamster identico
+        pero con un aura roja*/
         else if(band==1 && reloj.millisElapsed()>=1000)
         {
             setImage("ardiente1.png");
@@ -53,7 +57,7 @@ public class Ardiente extends Rocoso
         
         if(isTouching(Crank.class) && band==0)
         {    
-            ral.play();
+            quema();
             c.ralentiza();
             c.aumentapuntos(10); 
             mundo.removeObject(this);

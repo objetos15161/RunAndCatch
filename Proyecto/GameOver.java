@@ -1,16 +1,16 @@
 import greenfoot.*;
 
-/**
- * Write a description of class GameOver here.
+ /**
+ * Gif 800x553 para a pantalla de juego terminado.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @oscarvelarde
+ * @1 
  */
 public class GameOver extends Actor
 {
     /**
-     * Act - do whatever the GameOver wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * El constructor toma la imagen de la carpeta "images" del proyecto.
+     * El act muestra la secuencia del gif.
      */
     private GifImage fin;
     public GameOver()

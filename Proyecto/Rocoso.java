@@ -1,16 +1,18 @@
 import greenfoot.*;
 
 /**
- * Write a description of class Rocoso here.
+ * La habilidad de este hamster es que al tocarlo, no importa lo que hagas,
+ * inmovilizara al Crank por un tiempo que puede variar.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Esta clase hereda al ardiente un sonido que se reproduce al tocarlo.
+ * 
+ * @oscarvelarde
+ * @1 
  */
 public class Rocoso extends Hamster
 {
     /**
-     * Act - do whatever the Rocoso wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * La funcion verifica realiza la ralentizacion al Crank si es tocado
      */
     private int r=0;
     private GreenfootSound ral;
@@ -36,7 +38,6 @@ public class Rocoso extends Hamster
         x=getX();
         if(isTouching(Crank.class))
         {    
-            ral.play();
             c.ralentiza();
             c.aumentapuntos(15);
             mundo.removeObject(this);
@@ -49,4 +50,8 @@ public class Rocoso extends Hamster
             mundo.removeObject(this);
         }
     } 
+    public void quema()
+    {
+        ral.play();
+    }
 }

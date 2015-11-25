@@ -1,16 +1,16 @@
 import greenfoot.*;
 
 /**
- * Write a description of class Reloj here.
+ * Esta clase se encarga de mostrar y agregar en el mundo un contador
+ * con los segundos transcurridos en el mundo.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @angelicainfante 
+ * @1
  */
 public class Reloj extends Actor
 {
     /**
-     * Act - do whatever the Reloj wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * La variable valor se introducira en el contador timer.
      */
     private SimpleTimer timer;
     private Counter valor;
@@ -27,7 +27,6 @@ public class Reloj extends Actor
 
     public void act() 
     {
-        // Add your action code here.
         if(timer.millisElapsed()>1000)
         {
             valor.add(1);

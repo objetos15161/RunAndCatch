@@ -1,16 +1,18 @@
 import greenfoot.*;
 
 /**
- * Write a description of class Bala here.
+ * Objeto que al tocar al Crank, le resta una vida.
+ * Si lo toca, o llega al otro extremo desaparece.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @oscarvelarde
+ * @1 
  */
 public class Bala extends Actor
 {
     /**
-     * Act - do whatever the Bala wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Se mueve de derecha a izquierda en el mapa.
+     * Si toca al actor Crank, le resta una vida y reproduce un sonido
+     * para indicar que toco al actor.
      */
     private GreenfootSound bala;
     public Bala()

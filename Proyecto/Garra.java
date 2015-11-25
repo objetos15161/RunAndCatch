@@ -1,16 +1,19 @@
 import greenfoot.*;
 
 /**
- * Write a description of class Garra here.
+ * Objeto que mejora las caracteristicas del Crank.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Regresa al actor, que es el personaje del mundo, que haga una mejora en su garra
+ * (Ver clase Crank)
+ * 
+ * @oscarvelarde
+ * @1 
  */
 public class Garra extends Actor
 {
     /**
-     * Act - do whatever the Garra wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Al aparecer se mueve de derecha a izquierda y al tocar al Crank otorga
+     * las mejoras.
      */
     private int x;
     public void act() 
@@ -23,7 +26,11 @@ public class Garra extends Actor
         RunWorld mundo = (RunWorld)getWorld();
         Crank c = mundo.dimeCrank();  
         x=getX();
-        
+        /*
+         * Al tocar al Crank otorga la mejora de mas garra
+         * pero da menos velocidad al crank ya que solo
+         * 1 de las 2 mejoras puede estar activada a la vez.
+         */
         if(isTouching(Crank.class))
         {
             c.masgarra();
@@ -31,6 +38,8 @@ public class Garra extends Actor
             mundo.removeObject(this);
         }
         
+        // * Limite, al llegar se remueve el objeto
+         
         if(x<=100)
             mundo.removeObject(this);
         

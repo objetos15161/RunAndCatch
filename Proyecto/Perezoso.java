@@ -1,16 +1,18 @@
 import greenfoot.*;
 
 /**
- * Write a description of class Perezoso here.
+ * La peculiaridad de este hamster es que al llegar a una zona del mapa
+ * cambia su movimiento y comienza a avanzar a la derecha, poco despues 
+ * vuelve a desplazarse a la izquierda.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @oscarvelarde
+ * @1 
  */
 public class Perezoso extends Hamster
 {
     /**
-     * Act - do whatever the Perezoso wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * La variable direccion cambia al hacer la validacion, que, al llegar
+     * a la mitad del mapa comenzara a desplazarse al lado contrario.
      */
     private int dir=-2;
     private int band=0;

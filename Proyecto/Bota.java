@@ -1,16 +1,19 @@
 import greenfoot.*;
 
 /**
- * Write a description of class Bota here.
+ * Objeto que mejora las caracteristicas del Crank.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Regresa al actor, que es el personaje del mundo, que haga una mejora en su velocidad
+ * (Ver clase Crank)
+ * 
+ * @oscarvelarde
+ * @1 
  */
 public class Bota extends Actor
 {
     /**
-     * Act - do whatever the Bota wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Al aparecer se mueve de derecha a izquierda.
+     * Recibe al crank para hacerle la mejora si es necesario.
      */
     private int x;
     public void act() 
@@ -23,7 +26,7 @@ public class Bota extends Actor
         RunWorld mundo = (RunWorld)getWorld();
         Crank c = mundo.dimeCrank();  
         x=getX();
-        
+        //Desactiva la mejora de la garra en caso de que esté activada
         if(isTouching(Crank.class))
         {
             c.menosgarra();

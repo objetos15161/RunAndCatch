@@ -273,7 +273,7 @@ public class RunWorld extends World
         {
             if(Greenfoot.getRandomNumber(5000)<=2)
             {
-                tipo=Greenfoot.getRandomNumber(3);
+                tipo=Greenfoot.getRandomNumber(4);
                 if(tipo==0)
                 {
                     creaardiente(ran1);
@@ -286,7 +286,7 @@ public class RunWorld extends World
                 {
                     creahielo(ran1);
                 }
-                else
+                else if(tipo==3)
                 {
                     creaperezoso(ran1);
                 }        

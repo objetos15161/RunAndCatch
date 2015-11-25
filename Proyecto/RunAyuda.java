@@ -10,7 +10,7 @@ public class RunAyuda extends World
 {
 
     /**
-     * Constructor for objects of class RunAyuda.
+     * Constructor del mundo ayuda.
      * 
      */
     private int cuenta;
@@ -25,13 +25,13 @@ public class RunAyuda extends World
     {
         ayuda.play();
         setBackground("ayuda1.JPG");
-        Greenfoot.delay(400);
+        Greenfoot.delay(300);
         setBackground("ayuda2.JPG");
-        Greenfoot.delay(400);   
+        Greenfoot.delay(300);   
         setBackground("ayuda3.JPG");
-        Greenfoot.delay(400);
+        Greenfoot.delay(300);
         setBackground("ayuda4.JPG");
-        Greenfoot.delay(400);
+        Greenfoot.delay(300);
         ayuda.stop();
         Greenfoot.setWorld(new Menu());
                 

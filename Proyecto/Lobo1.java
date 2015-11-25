@@ -16,8 +16,9 @@ public class Lobo1 extends Lobo
      */
     public void act() 
     {
-        setImage(lobo.getCurrentImage());
+
         verifica();
+
     }    
     public void verifica()
     {

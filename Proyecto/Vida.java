@@ -1,16 +1,17 @@
 import greenfoot.*;
 
 /**
- * Write a description of class Vida here.
+ * Objeto que sirve para dar mas vida al personaje principal del 
+ * juego, las validaciones se ecuentran en la clase Crank
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @oscarvelarde
+ * @1 
  */
 public class Vida extends Actor
 {
     /**
-     * Act - do whatever the Vida wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Se mueve de derecha a izquierda y al llegar al otro extremo
+     * desaparece.
      */
     private int x;
     public void act() 

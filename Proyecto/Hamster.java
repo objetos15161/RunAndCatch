@@ -1,10 +1,17 @@
 import greenfoot.*;
 
 /**
- * Write a description of class Hamster here.
+ * Clase de interfaz, hereda a sus subclases el sonido come(que se ejectua al
+ * llegar al borde izquierdo) y la funcion tambalea la cual simula que los 
+ * hamsters están corriendo o caminando de una manera peculiar.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * La funcion verifica es diferente en las subclases ya que la validacion
+ * al tocar al Crank puede cambiar.
+ * 
+ * La cantidad de puntos que otrogan es variable.
+ * 
+ * @oscarvelarde
+ * @1 
  */
 public class Hamster extends Actor
 {
@@ -14,11 +21,11 @@ public class Hamster extends Actor
     private int band=0;
 
     private GreenfootSound come;
-    /**
-     * Act - do whatever the Hamster wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     private int n;
+    /**
+     * EL constructor toma un numero random el cual será la velocidad
+     * de movimiento durante todo el trayecto del hamster
+     */
     public Hamster()
     {
         while(n==0)
@@ -31,11 +38,10 @@ public class Hamster extends Actor
     {
         RunWorld mundo = (RunWorld)getWorld();
         verifica();
-        seg=mundo.dasegundos();
         move(-n);
         tambalea();
     }    
-
+     
     public void verifica()
     {
         RunWorld mundo = (RunWorld)getWorld();
@@ -43,9 +49,7 @@ public class Hamster extends Actor
         ran=Greenfoot.getRandomNumber(600);
         int x;
         x=getX();
-        //if(seg%2==0)
-        //    mundo.addObject(this,750,ran);
-        
+
         if(isTouching(Crank.class))
         {
             c.aumentapuntos(10);

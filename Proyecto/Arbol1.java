@@ -1,17 +1,13 @@
 import greenfoot.*;
 
 /**
- * Write a description of class Arbol1 here.
+ * Imagen para scroll
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @oscarvelarde
+ * @1 
  */
 public class Arbol1 extends Scroll
 {
-    /**
-     * Act - do whatever the Arbol1 wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     private int niv;
     public void act() 
     {
