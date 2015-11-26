@@ -21,6 +21,7 @@ public class Garra extends Actor
         move(-2);
         mejora();
     }    
+
     public void mejora()
     {
         RunWorld mundo = (RunWorld)getWorld();
@@ -37,11 +38,8 @@ public class Garra extends Actor
             c.menosvel();
             mundo.removeObject(this);
         }
-        
-        // * Limite, al llegar se remueve el objeto
-         
+        // Limite, al llegar se remueve el objeto
         if(x<=100)
             mundo.removeObject(this);
-        
     }
 }

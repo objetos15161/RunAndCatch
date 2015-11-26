@@ -24,12 +24,14 @@ public class Rocoso extends Hamster
             r=Greenfoot.getRandomNumber(3);
         }
     }
+
     public void act() 
     {
         verifica();
         move(-(r));
         tambalea();
     }    
+
     public void verifica()
     {
         RunWorld mundo = (RunWorld)getWorld();
@@ -42,7 +44,7 @@ public class Rocoso extends Hamster
             c.aumentapuntos(15);
             mundo.removeObject(this);
         }
-        
+
         if(x<100)
         {
             come();
@@ -50,6 +52,7 @@ public class Rocoso extends Hamster
             mundo.removeObject(this);
         }
     } 
+
     public void quema()
     {
         ral.play();

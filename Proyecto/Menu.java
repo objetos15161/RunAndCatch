@@ -1,10 +1,11 @@
 import greenfoot.*;
 
 /**
- * Write a description of class Menu here.
+ * Mundo que muestra la pantalla de menu con 4 botones para acceder al Juego, 
+ * Ayuda, Records y Créditos
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @oscarvelarde
+ * @1
  */
 public class Menu extends World
 {
@@ -15,12 +16,12 @@ public class Menu extends World
     private GreenfootSound press;
     private GreenfootSound fondo;
     /**
-     * Constructor for objects of class Menu.
-     * 
+     * Construye los objetos que requiere, cada uno de los botones y musica
+     *
      */
     public Menu()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        // Crea los botones y selecciona la musica
         super(800, 600, 1); 
         press=new GreenfootSound("boton.wav");
         fondo=new GreenfootSound("menu.mp3");
@@ -31,6 +32,7 @@ public class Menu extends World
         colocar();
     }
 
+    // Coloca los botones
     public void colocar()
     {
         addObject(jugar,609,178);
@@ -40,6 +42,7 @@ public class Menu extends World
 
     }
 
+    // Comprueba si se toco alguno para acceder a otro mundo
     public void act()
     {
         fondo.play();
@@ -73,7 +76,7 @@ public class Menu extends World
                 Greenfoot.setWorld(new RunRecord());
             }
         }
-        
+
         if(Greenfoot.getMouseInfo()!=null){
             if(Greenfoot.getMouseInfo().getButton()==1 && Greenfoot.getMouseInfo().getActor()==cred)
             {

@@ -19,27 +19,28 @@ public class Bala extends Actor
     {
         bala=new GreenfootSound("bala.wav");
     }
+
     public void act() 
     {
         move(-5);
         mata();
     }    
+
     public void mata()
     {
         RunWorld mundo = (RunWorld)getWorld();
         Crank c = mundo.dimeCrank();   
- 
+
         int x;
         x=getX();
-        
-        
+
         if(isTouching(Crank.class))
         {
             bala.play();
             c.restavidas();
             mundo.removeObject(this);
         }
-         
+
         if(x<100)
         {
             mundo.removeObject(this);

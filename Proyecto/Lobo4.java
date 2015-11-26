@@ -19,11 +19,12 @@ public class Lobo4 extends Lobo
         setImage(lobo.getCurrentImage());
         verifica();
     }    
+
     public void verifica()
     {
         RunWorld mundo = (RunWorld)getWorld();
         niv=mundo.danivel();
-        
+
         if(niv==5)
             mundo.removeObject(this);
     }

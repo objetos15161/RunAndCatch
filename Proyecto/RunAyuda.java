@@ -1,10 +1,10 @@
 import greenfoot.*;
 
 /**
- * Write a description of class RunAyuda here.
+ * Mundo que muestra una secuencia de imagenes con fondo musical, muestra y explica el funcionamiento y conceptos basicos del juego
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @oscarvelarde
+ * @1
  */
 public class RunAyuda extends World
 {
@@ -17,12 +17,14 @@ public class RunAyuda extends World
     private GreenfootSound ayuda;
     public RunAyuda()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        // Se define el tamaño que es el standar en cada una de las pantallas y una musica de fondo
         super(800, 600, 1); 
         ayuda=new GreenfootSound ("instru.mp3");
     }
+
     public void act()
     {
+        // Muestra una secuencia de imagenes que explican brevemente el fin y el funcionamiento del juego
         ayuda.play();
         setBackground("ayuda1.JPG");
         Greenfoot.delay(300);
@@ -34,6 +36,6 @@ public class RunAyuda extends World
         Greenfoot.delay(300);
         ayuda.stop();
         Greenfoot.setWorld(new Menu());
-                
+
     }
 }

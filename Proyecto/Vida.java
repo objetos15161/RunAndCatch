@@ -19,6 +19,7 @@ public class Vida extends Actor
         move(-4);
         limite();
     }    
+
     public void limite()
     {
         RunWorld mundo = (RunWorld)getWorld();

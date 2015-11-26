@@ -15,6 +15,7 @@ public class Arbol3 extends Scroll
         move(-3);
         verifica();
     }    
+
     public void verifica()
     {
         RunWorld mundo = (RunWorld)getWorld();

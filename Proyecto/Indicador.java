@@ -1,19 +1,14 @@
 import greenfoot.*;
 
 /**
- * Write a description of class Indicador here.
+ * Clase interfaz, como subclases tiene imagenes con tamaño maximo de 100x100
+ * que son dibujos que serviran como indicadores para el usuario, los cuales
+ * muestran la mejora actual
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @oscarvelarde
+ * @1 
  */
 public class Indicador extends Actor
 {
-    /**
-     * Act - do whatever the Indicador wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act() 
-    {
-        // Add your action code here.
-    }    
+
 }

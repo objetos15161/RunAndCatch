@@ -8,5 +8,5 @@ import greenfoot.*;
  */
 public class Boton extends Actor
 {
-    
+
 }

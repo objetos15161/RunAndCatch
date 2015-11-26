@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.params=
 comment0.target=Menu()
-comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Menu.\r\n\ \r\n
+comment0.text=\r\n\ Construye\ los\ objetos\ que\ requiere,\ cada\ uno\ de\ los\ botones\ y\ musica\r\n\r\n
 comment1.params=
 comment1.target=void\ colocar()
 comment2.params=

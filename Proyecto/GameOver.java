@@ -1,6 +1,6 @@
 import greenfoot.*;
 
- /**
+/**
  * Gif 800x553 para a pantalla de juego terminado.
  * 
  * @oscarvelarde
@@ -17,6 +17,7 @@ public class GameOver extends Actor
     {
         fin=new GifImage("gameover.gif");        
     }
+
     public void act() 
     {
         setImage(fin.getCurrentImage());

@@ -3,6 +3,9 @@ import greenfoot.*;
 /**
  * Clase que controla todo lo relacioado con el funcionamiento del juego
  * y todos sus niveles, se accede a esta a travez de el Menu.
+ * 
+ * @oscarvelarde
+ * @1
  */
 public class RunWorld extends World
 {
@@ -13,7 +16,7 @@ public class RunWorld extends World
     //Variables que controlan el contador del reloj y nivel
     private Counter cadReloj; 
     private Counter nivel;
-    
+
     //Declaracion de los actores del juego que son los personajes que debes capturar, hay 5 tipos      
     private Hamster hamster;
     private Helado helado;
@@ -53,7 +56,7 @@ public class RunWorld extends World
 
     //Declaracion del actor que controla el jugador
     private Crank crank;
-    
+
     //Declaracion e inicializacion de la variables enteras que ayudan a indicar cuantos segundos han transcurrido y en que nivel se encuentra
     private int segundos=0;
     private int p;
@@ -66,7 +69,7 @@ public class RunWorld extends World
 
     //Declaracion de la clase adicional que se creo para ordenar records
     private OrdRecords records;
-    
+
     //Declaraciond el boton que, al perder el juego, aparecerá y debes clickear para regresar al menú
     private Salir salir;
     /**
@@ -91,16 +94,16 @@ public class RunWorld extends World
         records=new OrdRecords();
         gameover=new GameOver();
         reloj = new SimpleTimer();
-        
+
         niv1=new Nivel1();
         niv2=new Nivel2();
         niv3=new Nivel3();
         niv4=new Nivel4();
         niv5=new Nivel5();
-        
+
         niv=1;
         segundos=0;
-        
+
         cadReloj = new Counter("Tiempo:  ");
         nivel=new Counter("Nivel: ");
         cadReloj.setValue(0);
@@ -111,11 +114,10 @@ public class RunWorld extends World
         s3=new GreenfootSound("nivel3.mp3");
         s4=new GreenfootSound("nivel4.mp3");
         s5=new GreenfootSound("nivel5.mp3");
-        fin=new GreenfootSound("fin.mp3");
+        fin=new GreenfootSound("fin.wav");
 
         salir = new Salir();
 
-        
     }
 
     public void act()
@@ -135,20 +137,27 @@ public class RunWorld extends World
             creabala();
         addObject(cadReloj,720,20);
         scroll();
+
+        //Conteo de segundos
         if(reloj.millisElapsed()>=1000)
         {
             reloj.mark();
             cadReloj.add(1);
             segundos++;
         }
+
+        //Validacion para determinar si se perdieron toda slas vidas
         if(crank.davidas()==0)
             findejuego();
         p=crank.dapuntos();
+
+        //Llamada a la funcion que realiza los cambios de nivel
         cambiaNivel();
     }
 
     public void scroll()
     {
+        //Se agrega aleatoriamente 3 tipos distintos de arboles para simular el scroll        
         if ( Greenfoot.getRandomNumber(1000) < 3)
             creaArbol1();
         if ( Greenfoot.getRandomNumber(1000) < 4)
@@ -158,7 +167,8 @@ public class RunWorld extends World
     }
 
     public void cambiaNivel()
-    {    
+    {   
+        //Hace el cambio en el Contador del mundo y en la variable niv, esto lo hace por minuto hasta el nivel 5
         if(segundos<=59)
         {
             niv=1;
@@ -189,11 +199,11 @@ public class RunWorld extends World
             nivel.setValue(5);
             nivel5();
         }
-
     }
 
     public void nivel1()
     {
+        //se crean hamsters normales y perezosos en sitios aleatorios y se cambia el fondo del mundo
         int ran=300;
         int ran1=300;
         setBackground("fondo1.jpg");
@@ -213,6 +223,7 @@ public class RunWorld extends World
 
     public void nivel2()
     {
+        //se crean hamsters normales y helados en sitios aleatorios y se cambia el fondo del mundo
         int ran=300;
         int ran1=300;
         setBackground("fondo3.jpg");
@@ -232,9 +243,9 @@ public class RunWorld extends World
 
     public void nivel3()
     {
+        //se crean hamsters normales y rocosos en sitios aleatorios y se cambia el fondo del mundo
         int ran=300;
         int ran1=300;
-
         setBackground("fondo2.jpg");
         while(ran>=100 && ran<=500)
         {
@@ -252,6 +263,7 @@ public class RunWorld extends World
 
     public void nivel4()
     {
+        //se crean hamsters normales y ardientes en sitios aleatorios y se cambia el fondo del mundo
         int ran=300;
         int ran1=300;
         setBackground("fondo4.jpg");
@@ -271,6 +283,7 @@ public class RunWorld extends World
 
     public void nivel5()
     {
+        //se crean hamsters normales y de cualquier tipo en sitios aleatorios y se cambia el fondo del mundo
         int ran=300;
         int ran1=300;
         int tipo;
@@ -307,54 +320,7 @@ public class RunWorld extends World
         }
     }
 
-    private void creaArbol1()
-    {
-        Arbol1 a1= new Arbol1();
-        addObject(a1,800,540);
-    }
-
-    private void creaArbol2()
-    {
-        Arbol2 a2= new Arbol2();
-        addObject(a2,800,560);
-    }
-
-    public void creanormal(int num)
-    {
-        hamster = new Hamster();
-        addObject(hamster,750,num);
-    }
-
-    public void creahielo(int num)
-    {
-        helado = new Helado();
-        addObject(helado,750,num);
-    }
-
-    public void crearocoso(int num)
-    {
-        rocoso = new Rocoso();
-        addObject(rocoso,750,num);
-    }
-
-    public void creaperezoso(int num)
-    {
-        perezoso = new Perezoso();
-        addObject(perezoso,750,num);
-    }
-
-    public void creaardiente(int num)
-    {
-        ardiente = new Ardiente();
-        addObject(ardiente,750,num);
-    }
-
-    private void creaArbol3()
-    {
-        Arbol3 a3= new Arbol3();
-        addObject(a3,800,550);
-    }
-
+    //Las funciones siguientes regresan los segundos y el nivel actual, esto ayuda a algunas otras clases a definir un comportamiento distinto
     public int dasegundos()
     {
         return(segundos);
@@ -364,6 +330,17 @@ public class RunWorld extends World
     {
         return(niv);
     }
+
+    //Esta ayuda a otras clases en caso de hacer un cambio en el jugador
+
+    public Crank dimeCrank()
+    {
+        return crank;
+    }
+
+    /*La funcion presenta muestra una pantalla con el nivel que se jugará y crea los lobos que tambien cambian segun el nivel, tambien reproduce 
+     * la musica que es distinta en cada nivel
+     */
 
     public void presenta()
     {
@@ -467,6 +444,56 @@ public class RunWorld extends World
 
     }
 
+    //Las funciones siguientes crean objetos cada vez que sean llamados, esto ayuda a no crear muchas variables para objetos del mismo tipo
+
+    private void creaArbol1()
+    {
+        Arbol1 a1= new Arbol1();
+        addObject(a1,800,540);
+    }
+
+    private void creaArbol2()
+    {
+        Arbol2 a2= new Arbol2();
+        addObject(a2,800,560);
+    }
+
+    private void creaArbol3()
+    {
+        Arbol3 a3= new Arbol3();
+        addObject(a3,800,550);
+    }
+
+    public void creanormal(int num)
+    {
+        hamster = new Hamster();
+        addObject(hamster,750,num);
+    }
+
+    public void creahielo(int num)
+    {
+        helado = new Helado();
+        addObject(helado,750,num);
+    }
+
+    public void crearocoso(int num)
+    {
+        rocoso = new Rocoso();
+        addObject(rocoso,750,num);
+    }
+
+    public void creaperezoso(int num)
+    {
+        perezoso = new Perezoso();
+        addObject(perezoso,750,num);
+    }
+
+    public void creaardiente(int num)
+    {
+        ardiente = new Ardiente();
+        addObject(ardiente,750,num);
+    }
+
     public void crealobo(int x, int y,int indi)
     {
         if(indi==1)
@@ -524,11 +551,7 @@ public class RunWorld extends World
         addObject(bota,750,400);
     }
 
-    public Crank dimeCrank()
-    {
-        return crank;
-    }
-
+    //Esta funcion detiene todo y muestra una pantalla con un gif de Juego Terminado y un botón que te regresa al menu principal si es tocado
     public void findejuego()
     {
         s1.stop();
@@ -540,14 +563,13 @@ public class RunWorld extends World
         addObject(gameover,getWidth()/2,getHeight()/2);
         addObject(salir,400,500);
         records.almacenaRecords(p);
-        fin.play();
+        fin.playLoop();
         reloj.mark();
         if(Greenfoot.getMouseInfo()!=null)
         { 
             if(Greenfoot.getMouseInfo().getButton()==1 && Greenfoot.getMouseInfo().getActor() == salir)
             {
                 fin.stop();
-
                 Greenfoot.setWorld(new Menu());
             }
         }

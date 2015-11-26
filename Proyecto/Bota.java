@@ -21,6 +21,7 @@ public class Bota extends Actor
         move(-2);
         mejora();
     }    
+
     public void mejora()
     {
         RunWorld mundo = (RunWorld)getWorld();

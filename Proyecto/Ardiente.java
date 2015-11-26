@@ -23,7 +23,7 @@ public class Ardiente extends Rocoso
         reloj=new SimpleTimer();
         setImage("ardiente1.png");
     }
-    
+
     public void act() 
     {
         //despues de un lapso de tiempo normaliza al hamster
@@ -45,16 +45,16 @@ public class Ardiente extends Rocoso
         move(-2);
         tambalea();
     }    
+
     public void verifica()
     {
         RunWorld mundo = (RunWorld)getWorld();
         Crank c = mundo.dimeCrank();
 
-    
         ran=Greenfoot.getRandomNumber(600);
         int x;
         x=getX();
-        
+
         if(isTouching(Crank.class) && band==0)
         {    
             quema();
@@ -67,7 +67,7 @@ public class Ardiente extends Rocoso
             c.aumentapuntos(15);
             mundo.removeObject(this);
         }
-        
+
         if(x<100)
         {
             come();
@@ -76,7 +76,5 @@ public class Ardiente extends Rocoso
         }
     }
 
-    
-    
     
 }

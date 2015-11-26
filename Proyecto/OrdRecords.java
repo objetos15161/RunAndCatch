@@ -1,10 +1,10 @@
 import greenfoot.*;
 import greenfoot.UserInfo; 
 /**
- * Write a description of class OrdRecords here.
+ * Clase que ordena records
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @angelicainfante
+ * @?
  */
 public class OrdRecords  
 {

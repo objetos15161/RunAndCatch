@@ -1,10 +1,10 @@
 import greenfoot.*;
 
 /**
- * Write a description of class RunRecord here.
+ * Mundo que muestra las mejores puntuaciones obtenidas en este juego
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @oscarvelarde
+ * @1
  */
 public class RunRecord extends World
 {
@@ -12,7 +12,7 @@ public class RunRecord extends World
     private GreenfootSound fondo;
     private ScoreBoard score;
     /**
-     * Constructor for objects of class RunRecord.
+     * Constructor de la pantalla de records
      * 
      */
     public RunRecord()
@@ -23,17 +23,20 @@ public class RunRecord extends World
         fondo=new GreenfootSound("record.mp3");
         salir=new Salir();
         colocar();
-    
+
     }
+
+    // Coloca el boton de salida y la pantalla de records
     public void colocar()
     {
         addObject(salir,750,50);
         addObject(score,400,300);
     }
+
     public void act()
     {
         fondo.play();
-         if(Greenfoot.getMouseInfo()!=null){ 
+        if(Greenfoot.getMouseInfo()!=null){ 
             if(Greenfoot.getMouseInfo().getButton()==1 && Greenfoot.getMouseInfo().getActor() == salir)
             {
                 Greenfoot.delay(30);

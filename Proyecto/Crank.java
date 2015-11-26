@@ -12,7 +12,7 @@ public class Crank extends Actor
      * Act - do whatever the Crank wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    
+
     private int mejora=0;
     private int mejora1=1;
     private int vel=1;
@@ -24,7 +24,6 @@ public class Crank extends Actor
     private int activ=0;
 
     private int ini;
-
 
     private Counter vidas;
     private Counter puntos;
@@ -44,9 +43,11 @@ public class Crank extends Actor
     private GreenfootSound vida;
 
     private IndBot ibot;
+    private int bbot=0;
     private IndGar igar;
+    private int bgar=0;
     private IndVida ivid;
-    
+
     private int numvidas=5;
     private int numpuntos=0;
 
@@ -61,7 +62,7 @@ public class Crank extends Actor
         ibot = new IndBot();
         igar = new IndGar();
         ivid = new IndVida();
-        
+
         p1=new GreenfootImage("p1.png");
         p11=new GreenfootImage("p11.png");
 
@@ -72,7 +73,7 @@ public class Crank extends Actor
         p33=new GreenfootImage("p33.png");
 
         setImage(p1);
-        
+
         garra=new GreenfootSound("garra.mp3");
         vida = new GreenfootSound("vida.mp3");
     }
@@ -81,6 +82,7 @@ public class Crank extends Actor
     {
         mundo.addObject(vidas,70,20);
         mundo.addObject(puntos,270,20);
+        mundo.addObject(ivid,145,22);
     }
 
     public void act() 
@@ -187,7 +189,7 @@ public class Crank extends Actor
         numvidas=numvidas-1;
         vidas.setValue(numvidas);
     }
-    
+
     public void sumavidas()
     {
         RunWorld mundo = (RunWorld)getWorld();
@@ -200,44 +202,58 @@ public class Crank extends Actor
     {
         return numvidas;
     }
-    
+
     public int dapuntos()
     {
         return numpuntos;
     }
-    
+
     public int davel()
     {
-        RunWorld mundo = (RunWorld)getWorld();
-        mundo.addObject(ibot,400,30);
         return vel;
     }
-    
+
     public int dagarra()
     {
         return mejora;  
     }
-    
+
     public void masgarra()
     {
+        RunWorld mundo = (RunWorld)getWorld();
+        if(bbot==1)
+        {
+            ibot.remueve();
+            bbot=0;
+        }
+        mundo.addObject(igar,400,30);
+        bgar=1;
         mejora=1;
     }
-    
+
     public void masvel()
     {
+        RunWorld mundo = (RunWorld)getWorld();
+        if(bgar==1)
+        {
+            igar.remueve();
+            bgar=0;
+        }
+        mundo.addObject(ibot,400,30);
+        bbot=1;
         vel=2;
         mejora1=2;
     }
-    
+
     public void menosgarra()
     {
         mejora=0;
     }
-    
+
     public void menosvel()
     {
         vel=1;
         mejora1=1;
     }
-    
+
 }

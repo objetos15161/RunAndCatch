@@ -26,6 +26,7 @@ public class Perezoso extends Hamster
         move(dir);
         tambalea();
     }    
+
     public void mueve()
     {
         int x;
@@ -42,6 +43,7 @@ public class Perezoso extends Hamster
             dir=-2;
         }    
     }
+
     public void verifica()
     {
         RunWorld mundo = (RunWorld)getWorld();
@@ -52,13 +54,12 @@ public class Perezoso extends Hamster
         mueve();
         if(seg%2==0)
             mundo.addObject(this,750,ran);
-        
+
         if(isTouching(Crank.class))
         {
             c.aumentapuntos(15);
             mundo.removeObject(this);
         }
-        
 
         if(x<100)
         {
@@ -66,6 +67,6 @@ public class Perezoso extends Hamster
             c.restavidas();
             mundo.removeObject(this);
         }
-                    
+
     }
 }

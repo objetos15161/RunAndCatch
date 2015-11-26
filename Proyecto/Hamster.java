@@ -34,6 +34,7 @@ public class Hamster extends Actor
         }
         come=new GreenfootSound("comer.wav");
     }
+
     public void act() 
     {
         RunWorld mundo = (RunWorld)getWorld();
@@ -41,7 +42,7 @@ public class Hamster extends Actor
         move(-n);
         tambalea();
     }    
-     
+
     public void verifica()
     {
         RunWorld mundo = (RunWorld)getWorld();
@@ -55,15 +56,16 @@ public class Hamster extends Actor
             c.aumentapuntos(10);
             mundo.removeObject(this);
         }
-         
+
         if(x<100)
         {
             come();
             c.restavidas();
             mundo.removeObject(this);
-            
+
         }
     }
+
     public void tambalea()
     {
         if(Greenfoot.getRandomNumber(2000)<=100 && band==0)
@@ -77,6 +79,7 @@ public class Hamster extends Actor
             band=0;
         }
     }
+
     public void come()
     {
         come.play();

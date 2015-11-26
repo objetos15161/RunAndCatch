@@ -24,14 +24,16 @@ public class Helado extends Hamster
     {
         rompe=new GreenfootSound("rompe.wav");
     }
+
     public void act() 
     {
-       RunWorld mundo = (RunWorld)getWorld();
-       verifica();
-       seg=mundo.dasegundos();
-       tambalea();
-       move(vel);
+        RunWorld mundo = (RunWorld)getWorld();
+        verifica();
+        seg=mundo.dasegundos();
+        tambalea();
+        move(vel);
     }    
+
     public void verifica()
     {
         RunWorld mundo = (RunWorld)getWorld();
@@ -43,27 +45,26 @@ public class Helado extends Hamster
         y=getY();
         if(seg%2==0)
             mundo.addObject(this,750,ran);
-        
+
         if(x>=600 && band==1)
             vel=-2;
-            
+
         if(isTouching(Crank.class) && band==0)
         {
             rompe.play();
             vel=10;
-            
+
             //this.setLocation(x+200,y);
             band=1;
             this.setImage("helado.png");
         }
-        
+
         else if(isTouching(Crank.class) && band==1)
         {
             c.aumentapuntos(20);
             mundo.removeObject(this);
         }
 
-            
         if(x<100)
         {
             come();
@@ -71,6 +72,5 @@ public class Helado extends Hamster
             mundo.removeObject(this);
         }
     }
-    
-    
+
 }

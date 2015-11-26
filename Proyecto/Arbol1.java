@@ -14,6 +14,7 @@ public class Arbol1 extends Scroll
         move(-2);
         verifica();
     }    
+
     public void verifica()
     {
         RunWorld mundo = (RunWorld)getWorld();
@@ -23,7 +24,7 @@ public class Arbol1 extends Scroll
         if(niv==1)
         {
             setImage("arbol1.png");
-            
+
         }
         else if(niv==2)
         {
