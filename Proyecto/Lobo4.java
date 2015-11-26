@@ -1,10 +1,10 @@
 import greenfoot.*;
 
 /**
- * Write a description of class Lobo4 here.
+ * Clase que guarda el gif de los lobos del nivel 4
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @oscarvelarde
+ * @1 
  */
 public class Lobo4 extends Lobo
 {

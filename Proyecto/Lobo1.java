@@ -1,10 +1,10 @@
 import greenfoot.*;
 
 /**
- * Write a description of class Lobo1 here.
+ * Clase que guarda el gif de los lobos del nivel 1
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @oscarvelarde
+ * @1 
  */
 public class Lobo1 extends Lobo
 {
@@ -16,9 +16,8 @@ public class Lobo1 extends Lobo
      */
     public void act() 
     {
-
+        setImage(lobo.getCurrentImage());
         verifica();
-
     }    
     public void verifica()
     {

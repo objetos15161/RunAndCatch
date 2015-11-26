@@ -43,6 +43,10 @@ public class Crank extends Actor
     private GreenfootSound garra;
     private GreenfootSound vida;
 
+    private IndBot ibot;
+    private IndGar igar;
+    private IndVida ivid;
+    
     private int numvidas=5;
     private int numpuntos=0;
 
@@ -54,6 +58,10 @@ public class Crank extends Actor
         puntos=new Counter("Puntos: ");
         puntos.setValue(numpuntos);
 
+        ibot = new IndBot();
+        igar = new IndGar();
+        ivid = new IndVida();
+        
         p1=new GreenfootImage("p1.png");
         p11=new GreenfootImage("p11.png");
 
@@ -64,8 +72,8 @@ public class Crank extends Actor
         p33=new GreenfootImage("p33.png");
 
         setImage(p1);
-        garra=new GreenfootSound("garra.mp3");
         
+        garra=new GreenfootSound("garra.mp3");
         vida = new GreenfootSound("vida.mp3");
     }
 
@@ -200,6 +208,8 @@ public class Crank extends Actor
     
     public int davel()
     {
+        RunWorld mundo = (RunWorld)getWorld();
+        mundo.addObject(ibot,400,30);
         return vel;
     }
     

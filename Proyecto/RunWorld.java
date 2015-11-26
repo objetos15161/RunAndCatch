@@ -1,101 +1,96 @@
 import greenfoot.*;
 
 /**
- * Write a description of class RunWorld here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Clase que controla todo lo relacioado con el funcionamiento del juego
+ * y todos sus niveles, se accede a esta a travez de el Menu.
  */
 public class RunWorld extends World
 {
-    private int band;
-    private int n=50;
-    private int a=0;
-    private int niv;
+    private int niv; //variable entera que cambia cada vez que se sube de nivel
 
-    private int valor=0;
+    private SimpleTimer reloj; //Variable que controla el timer
 
-    private SimpleTimer reloj;
-
-    private Counter cadReloj;
-
+    //Variables que controlan el contador del reloj y nivel
+    private Counter cadReloj; 
+    private Counter nivel;
+    
+    //Declaracion de los actores del juego que son los personajes que debes capturar, hay 5 tipos      
     private Hamster hamster;
     private Helado helado;
     private Perezoso perezoso;
     private Ardiente ardiente;
     private Rocoso rocoso;
 
-
+    //Declaracion de los actores que son los lobos que persiguen a los hamsters
     private Lobo1 lobo1;
     private Lobo2 lobo2;
     private Lobo3 lobo3;
     private Lobo4 lobo4;
     private Lobo5 lobo5;
 
+    //Declaracion de objetos que sirven como pantallas de cambio de nivel, y la ultima como pantalla de juego terminado
     private Nivel1 niv1;
     private Nivel2 niv2;
     private Nivel3 niv3;
     private Nivel4 niv4;
     private Nivel5 niv5;
-    
+    private GameOver gameover;
+
+    //Declaracion de los objetos que ayudan a simular el scroll que se puede observar en la parte inferior
     private Arbol1 a1;
     private Arbol2 a2;
     private Arbol3 a3;
 
+    //Declaracion de los sonidos de cada nivel
     private GreenfootSound s1;
     private GreenfootSound s2;
     private GreenfootSound s3;
     private GreenfootSound s4;
     private GreenfootSound s5;
 
+    //Sonido de la pantalla del Juego Terminado
     private GreenfootSound fin;
-    
+
+    //Declaracion del actor que controla el jugador
     private Crank crank;
-    private Counter nivel;
-    private int segundos=0;
     
+    //Declaracion e inicializacion de la variables enteras que ayudan a indicar cuantos segundos han transcurrido y en que nivel se encuentra
+    private int segundos=0;
+    private int p;
+
+    //Declaracion de los objetos que dan un plus al personaje
     private Bota bota;
     private Garra garra;
     private Vida vida;
     private Bala bala;
-    
-    private GameOver gameover;
-    private int p;
+
+    //Declaracion de la clase adicional que se creo para ordenar records
     private OrdRecords records;
+    
+    //Declaraciond el boton que, al perder el juego, aparecerá y debes clickear para regresar al menú
     private Salir salir;
     /**
-     * Constructor for objects of class RunWorld.
+     * Se crea la pantalla con un standar de 800x600 que es la que se adapta a  la mayoria de computadoras
      * 
      */
     public RunWorld()
     {    
         // Create a new world with 800x600 cells with a cell size of 1x1 pixels.
         super(800, 600, 1); 
+        //Funcion que crea los objetos del juego
         prepararObjetos();
+        //Se agrega el personaje a la pantalla del mundo
         addObject(crank,200,400);
         addObject(nivel,520,20);
     }
 
     public void prepararObjetos()
     {
+        //Creacion de los objetos necesarios para este mundo
         crank = new Crank();
-
         records=new OrdRecords();
-        
         gameover=new GameOver();
-        
         reloj = new SimpleTimer();
-        niv=1;
-        cadReloj = new Counter("Tiempo:  ");
-        cadReloj.setValue(0);//valor inicial de 60 segundos
-        segundos=0;
-
-        s1=new GreenfootSound("nivel1.mp3");
-        s2=new GreenfootSound("nivel2.mp3");
-        s3=new GreenfootSound("nivel3.mp3");
-        s4=new GreenfootSound("nivel4.mp3");
-        s5=new GreenfootSound("nivel5.mp3");
-        fin=new GreenfootSound("fin.mp3");
         
         niv1=new Nivel1();
         niv2=new Nivel2();
@@ -103,23 +98,40 @@ public class RunWorld extends World
         niv4=new Nivel4();
         niv5=new Nivel5();
         
+        niv=1;
+        segundos=0;
+        
+        cadReloj = new Counter("Tiempo:  ");
+        nivel=new Counter("Nivel: ");
+        cadReloj.setValue(0);
+        nivel.setValue(0);
+
+        s1=new GreenfootSound("nivel1.mp3");
+        s2=new GreenfootSound("nivel2.mp3");
+        s3=new GreenfootSound("nivel3.mp3");
+        s4=new GreenfootSound("nivel4.mp3");
+        s5=new GreenfootSound("nivel5.mp3");
+        fin=new GreenfootSound("fin.mp3");
+
         salir = new Salir();
 
-        nivel=new Counter("Nivel: ");
-
+        
     }
 
     public void act()
     {
+        //cada que se cambia de nivel se hace una presentacion de cada uno de ellos
         if((segundos==0 && niv==1) || (segundos==60 && niv==2) || (segundos==120 && niv==3) || (segundos==180 && niv==4) || (segundos==240 && niv==5))
         {
             presenta();
+            //Al pasar de nivel, agrega las mejoras en el mapa
             if(niv>1)
                 creamejoras();
         }
+        //Crea una vida o una bala cada cierto momento
         if(Greenfoot.getRandomNumber(10000)<=3)
             creavida();
-        if(Greenfoot.getRandomNumber(1000)<=1)
+        if(Greenfoot.getRandomNumber(3000)<=2)
             creabala();
         addObject(cadReloj,720,20);
         scroll();
@@ -256,7 +268,7 @@ public class RunWorld extends World
             ran1=Greenfoot.getRandomNumber(500);
         }
     }
-    
+
     public void nivel5()
     {
         int ran=300;
@@ -441,7 +453,7 @@ public class RunWorld extends World
             removeObject(niv5);
 
             s5.playLoop();
-            
+
             indi=1;
             crealobo(75,150,indi);
             crealobo(45,200,indi);
@@ -487,7 +499,7 @@ public class RunWorld extends World
         }
 
     }
-    
+
     public void creavida()
     {
         int x;
@@ -495,6 +507,7 @@ public class RunWorld extends World
         vida = new Vida();
         addObject(vida,750,x+120);
     }
+
     public void creabala()
     {
         int x;
@@ -502,7 +515,7 @@ public class RunWorld extends World
         bala = new Bala();
         addObject(bala,750,x+120);
     }
-    
+
     public void creamejoras()
     {
         garra = new Garra();
@@ -510,32 +523,32 @@ public class RunWorld extends World
         addObject(garra,750,200);
         addObject(bota,750,400);
     }
-    
+
     public Crank dimeCrank()
     {
         return crank;
     }
-    
+
     public void findejuego()
     {
-         s1.stop();
-         s2.stop();
-         s3.stop();
-         s4.stop();
-         s5.stop();
-         removeObjects(getObjects(Actor.class));
-         addObject(gameover,getWidth()/2,getHeight()/2);
-         addObject(salir,400,500);
-         records.almacenaRecords(p);
-         fin.play();
-         reloj.mark();
-         if(Greenfoot.getMouseInfo()!=null)
-         { 
+        s1.stop();
+        s2.stop();
+        s3.stop();
+        s4.stop();
+        s5.stop();
+        removeObjects(getObjects(Actor.class));
+        addObject(gameover,getWidth()/2,getHeight()/2);
+        addObject(salir,400,500);
+        records.almacenaRecords(p);
+        fin.play();
+        reloj.mark();
+        if(Greenfoot.getMouseInfo()!=null)
+        { 
             if(Greenfoot.getMouseInfo().getButton()==1 && Greenfoot.getMouseInfo().getActor() == salir)
             {
-             fin.stop();
-             
-             Greenfoot.setWorld(new Menu());
+                fin.stop();
+
+                Greenfoot.setWorld(new Menu());
             }
         }
     }

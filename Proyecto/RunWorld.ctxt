@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.params=
 comment0.target=RunWorld()
-comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ RunWorld.\r\n\ \r\n
+comment0.text=\r\n\ Se\ crea\ la\ pantalla\ con\ un\ standar\ de\ 800x600\ que\ es\ la\ que\ se\ adapta\ a\ \ la\ mayoria\ de\ computadoras\r\n\ \r\n
 comment1.params=
 comment1.target=void\ prepararObjetos()
 comment10.params=

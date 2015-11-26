@@ -1,19 +1,15 @@
 import greenfoot.*;
 
 /**
- * Write a description of class Lobo2 here.
+ * Clase que guarda el gif de los lobos del nivel 2
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @oscarvelarde
+ * @1 
  */
 public class Lobo2 extends Lobo
 {
     GifImage lobo = new GifImage("lobo2.gif");
     private int niv;
-    /**
-     * Act - do whatever the Lobo1 wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     public void act() 
     {
         setImage(lobo.getCurrentImage());
