@@ -45,7 +45,7 @@ public class Menu extends World
     // Comprueba si se toco alguno para acceder a otro mundo
     public void act()
     {
-        fondo.play();
+        fondo.playLoop();
         if(Greenfoot.getMouseInfo()!=null){ 
             if(Greenfoot.getMouseInfo().getButton()==1 && Greenfoot.getMouseInfo().getActor() == jugar)
             {

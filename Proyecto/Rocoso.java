@@ -41,6 +41,7 @@ public class Rocoso extends Hamster
         if(isTouching(Crank.class))
         {    
             c.ralentiza();
+            quema();
             c.aumentapuntos(15);
             mundo.removeObject(this);
         }
