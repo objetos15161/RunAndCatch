@@ -9,7 +9,7 @@ import greenfoot.*;
  * @oscarvelarde
  * @1 
  */
-public class Bota extends Actor
+public class Bota extends Items
 {
     /**
      * Al aparecer se mueve de derecha a izquierda.
@@ -18,7 +18,7 @@ public class Bota extends Actor
     private int x;
     public void act() 
     {
-        move(-2);
+        mover();
         mejora();
     }    
 

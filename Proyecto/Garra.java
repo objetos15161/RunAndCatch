@@ -9,7 +9,7 @@ import greenfoot.*;
  * @oscarvelarde
  * @1 
  */
-public class Garra extends Actor
+public class Garra extends Items
 {
     /**
      * Al aparecer se mueve de derecha a izquierda y al tocar al Crank otorga

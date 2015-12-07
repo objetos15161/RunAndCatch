@@ -32,11 +32,7 @@ public class RunWorld extends World
     private Lobo5 lobo5;
 
     //Declaracion de objetos que sirven como pantallas de cambio de nivel, y la ultima como pantalla de juego terminado
-    private Nivel1 niv1;
-    private Nivel2 niv2;
-    private Nivel3 niv3;
-    private Nivel4 niv4;
-    private Nivel5 niv5;
+    private Presenta presenta;
     private GameOver gameover;
 
     //Declaracion de los objetos que ayudan a simular el scroll que se puede observar en la parte inferior
@@ -68,7 +64,7 @@ public class RunWorld extends World
     private Bala bala;
 
     //Declaracion de la clase adicional que se creo para ordenar records
-    private OrdRecords records;
+    //private OrdRecords records;
 
     //Declaraciond el boton que, al perder el juego, aparecerá y debes clickear para regresar al menú
     private Salir salir;
@@ -91,15 +87,11 @@ public class RunWorld extends World
     {
         //Creacion de los objetos necesarios para este mundo
         crank = new Crank();
-        records=new OrdRecords();
+        //records=new OrdRecords();
         gameover=new GameOver();
         reloj = new SimpleTimer();
 
-        niv1=new Nivel1();
-        niv2=new Nivel2();
-        niv3=new Nivel3();
-        niv4=new Nivel4();
-        niv5=new Nivel5();
+        presenta=new Presenta();
 
         niv=1;
         segundos=0;
@@ -148,7 +140,10 @@ public class RunWorld extends World
 
         //Validacion para determinar si se perdieron toda slas vidas
         if(crank.davidas()==0)
+        {
+           // records.almacenaRecords(crank.dapuntos());
             findejuego();
+        }
         p=crank.dapuntos();
 
         //Llamada a la funcion que realiza los cambios de nivel
@@ -347,10 +342,11 @@ public class RunWorld extends World
         int indi;
         if(niv==1)
         {
-            addObject(niv1,400,300);
+    
+            addObject(presenta,400,300);
             Greenfoot.delay(100);
-            removeObject(niv1);
-
+            removeObject(presenta);
+            presenta.aumenta();
             s1.play();
 
             indi=1;
@@ -366,10 +362,11 @@ public class RunWorld extends World
         else if(niv==2)
         {
             s1.stop();
-
-            addObject(niv2,400,300);
+      
+            addObject(presenta,400,300);
             Greenfoot.delay(100);
-            removeObject(niv2);
+            removeObject(presenta);
+            presenta.aumenta();
             s2.play();
             indi=1;
             crealobo(75,150,indi);
@@ -384,10 +381,11 @@ public class RunWorld extends World
         else if(niv==3)
         { 
             s2.stop();
-
-            addObject(niv3,400,300);
+            
+            addObject(presenta,400,300);
             Greenfoot.delay(100);
-            removeObject(niv3);
+            removeObject(presenta);
+            presenta.aumenta();
 
             s3.play();
 
@@ -404,10 +402,11 @@ public class RunWorld extends World
         else if(niv==4)
         {
             s3.stop();
-
-            addObject(niv4,400,300);
+            
+            addObject(presenta,400,300);
             Greenfoot.delay(100);
-            removeObject(niv4);
+            removeObject(presenta);
+            presenta.aumenta();
 
             s4.playLoop();
 
@@ -424,10 +423,11 @@ public class RunWorld extends World
         else if(niv==5)
         {
             s4.stop();
-
-            addObject(niv5,400,300);
+           
+            addObject(presenta,400,300);
             Greenfoot.delay(100);
-            removeObject(niv5);
+            removeObject(presenta);
+            //presenta.aumenta();
 
             s5.playLoop();
 
@@ -562,7 +562,7 @@ public class RunWorld extends World
         removeObjects(getObjects(Actor.class));
         addObject(gameover,getWidth()/2,getHeight()/2);
         addObject(salir,400,500);
-        records.almacenaRecords(p);
+        // records.almacenaRecords(p);
         fin.playLoop();
         reloj.mark();
         if(Greenfoot.getMouseInfo()!=null)

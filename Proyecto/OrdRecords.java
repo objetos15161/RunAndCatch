@@ -1,4 +1,11 @@
-import greenfoot.*;
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.UserInfo; 
+
+/**
+ * Esta clase, se encarga de ordenar los records, es decir las puntuaciones de los jugadores.
+ * 
+ * @author (Angélica María Infante Barbosa) 
+ import greenfoot.*;
 import greenfoot.UserInfo; 
 /**
  * Clase que ordena records
@@ -36,3 +43,4 @@ public class OrdRecords
          }
     }
 }
+
