@@ -7,19 +7,22 @@ import greenfoot.*;
  * @oscarvelarde
  * @1 
  */
-public class Vida extends Actor
+public class Vida extends Items
 {
-    /**
-     * Se mueve de derecha a izquierda y al llegar al otro extremo
-     * desaparece.
-     */
+    
     private int x;
+    /**
+     * Al aparecer se mueve de derecha a izquierda 
+     */
     public void act() 
     {
         move(-4);
         limite();
     }    
 
+    /**
+     * Al llegar al extremo del mapa se elimina
+     */
     public void limite()
     {
         RunWorld mundo = (RunWorld)getWorld();

@@ -1,6 +1,8 @@
 #BlueJ class context
 comment0.params=
 comment0.target=void\ act()
+comment0.text=\r\n\ Al\ aparecer,\ se\ mueve\ de\ izquierda\ a\ derecha\ \r\n
 comment1.params=
 comment1.target=void\ verifica()
+comment1.text=\r\n\ Se\ encarga\ de\ validar\ en\ que\ nivel\ se\ encuentra\ y\ hace\ el\ cambio\ del\ tipo\ de\ arbol\ \r\n
 numComments=2

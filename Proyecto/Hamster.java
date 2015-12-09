@@ -35,6 +35,9 @@ public class Hamster extends Actor
         come=new GreenfootSound("comer.wav");
     }
 
+    /**
+     * Realiza el movimiento, y manda a llamar la funcion verifica
+     */
     public void act() 
     {
         RunWorld mundo = (RunWorld)getWorld();
@@ -43,6 +46,9 @@ public class Hamster extends Actor
         tambalea();
     }    
 
+    /**
+     * Se encarga de verificar si el hamster llego al limite (quita una vida), tocó al personaje  (aumenta puntos)
+     */
     public void verifica()
     {
         RunWorld mundo = (RunWorld)getWorld();
@@ -66,6 +72,9 @@ public class Hamster extends Actor
         }
     }
 
+    /**
+     * Metodo que se hereda a sus clases, simula un pequeño tambaleo
+     */
     public void tambalea()
     {
         if(Greenfoot.getRandomNumber(2000)<=100 && band==0)
@@ -80,6 +89,9 @@ public class Hamster extends Actor
         }
     }
 
+    /**
+     * Metodo que se hereda al resto de los hamsters, reproduce el sonido de ser comido por un lobo
+     */
     public void come()
     {
         come.play();

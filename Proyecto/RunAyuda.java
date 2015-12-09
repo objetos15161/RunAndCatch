@@ -15,16 +15,21 @@ public class RunAyuda extends World
      */
     private int cuenta;
     private GreenfootSound ayuda;
+    /**
+     * Se define el tamaño que es el standar en cada una de las pantallas y una musica de fondo
+     */
     public RunAyuda()
     {    
-        // Se define el tamaño que es el standar en cada una de las pantallas y una musica de fondo
+       
         super(800, 600, 1); 
         ayuda=new GreenfootSound ("instru.mp3");
     }
 
+    /**
+     * Muestra en pantalla una secuencia de imagenes que explican brevemente el fin y funcionamiento del juego
+     */
     public void act()
     {
-        // Muestra una secuencia de imagenes que explican brevemente el fin y el funcionamiento del juego
         ayuda.play();
         setBackground("ayuda1.JPG");
         Greenfoot.delay(300);

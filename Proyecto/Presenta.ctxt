@@ -1,8 +1,10 @@
 #BlueJ class context
 comment0.params=
 comment0.target=Presenta()
+comment0.text=\r\n\ Elige\ la\ imagen\ dependiendo\ del\ nivel\ actual\r\n
 comment1.params=
 comment1.target=void\ act()
 comment2.params=
 comment2.target=void\ aumenta()
+comment2.text=\r\n\ Aumenta\ la\ bandera,\ que\ es\ mi\ indicador\ de\ nivel\r\n
 numComments=3

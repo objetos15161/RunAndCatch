@@ -1,7 +1,7 @@
 import greenfoot.*;
 
 /**
- * Imagen estática
+ * Imagen estática, se muestra al lado del contador de vida simbolicamente
  * 
  * @oscarvelarde
  * @1 

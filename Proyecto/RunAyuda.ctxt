@@ -1,6 +1,8 @@
 #BlueJ class context
 comment0.params=
 comment0.target=RunAyuda()
+comment0.text=\r\n\ Se\ define\ el\ tama\u00F1o\ que\ es\ el\ standar\ en\ cada\ una\ de\ las\ pantallas\ y\ una\ musica\ de\ fondo\r\n
 comment1.params=
 comment1.target=void\ act()
+comment1.text=\r\n\ Muestra\ en\ pantalla\ una\ secuencia\ de\ imagenes\ que\ explican\ brevemente\ el\ fin\ y\ funcionamiento\ del\ juego\r\n
 numComments=2

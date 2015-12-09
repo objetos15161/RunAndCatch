@@ -1,8 +1,11 @@
 #BlueJ class context
 comment0.params=
 comment0.target=Reloj()
+comment0.text=\r\n\ La\ variable\ valor\ se\ introducira\ en\ el\ contador\ timer.\r\n
 comment1.params=mundo
 comment1.target=void\ addedToWorld(greenfoot.World)
+comment1.text=\r\n\ Agrega\ el\ contador\ del\ reloj\ al\ mundo\r\n
 comment2.params=
 comment2.target=void\ act()
+comment2.text=\r\n\ Marca\ cada\ que\ pasa\ un\ segundo\ y\ aumenta\ el\ valor\ del\ contador\r\n
 numComments=3

@@ -10,20 +10,24 @@ import greenfoot.*;
  */
 public class Ardiente extends Rocoso
 {
-    /**
-     * La diferecia es la bandera que indica si esta encendido y apagado,
-     * y en base a esto ralentiza o no al Crank.
-     */
+
     private SimpleTimer reloj;
     private int band=0;
     private int ran;
 
+    /**
+     * Se usa un timer para tomar el tiempo de encendido y apagado
+     */
     public Ardiente()
     {
         reloj=new SimpleTimer();
         setImage("ardiente1.png");
     }
 
+    /**
+     * La diferecia es la bandera que indica si esta encendido y apagado,
+     * y en base a esto ralentiza o no al Crank.
+     */
     public void act() 
     {
         //despues de un lapso de tiempo normaliza al hamster
@@ -46,6 +50,11 @@ public class Ardiente extends Rocoso
         tambalea();
     }    
 
+    /**
+     * Verifica si el hamster es tocado por el crank(aumenta puntos), 
+     * llega al limite (resta vidas) y si toca a un hamster encendido
+     * o no.
+     */
     public void verifica()
     {
         RunWorld mundo = (RunWorld)getWorld();
@@ -75,6 +84,4 @@ public class Ardiente extends Rocoso
             mundo.removeObject(this);
         }
     }
-
-    
 }

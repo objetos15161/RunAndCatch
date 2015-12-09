@@ -19,12 +19,17 @@ public class RunCredito extends World
         colocar();
     }
 
-    //Coloca el boton de salir
+   /**
+    * Coloca el boton de salir
+    */
     public void colocar()
     {
         addObject(salir,750,50);
     }
 
+    /**
+     * Reproduce la musica de fondo hasta que se presione el boton de salir
+     */
     public void act()
     {
         credi.play();

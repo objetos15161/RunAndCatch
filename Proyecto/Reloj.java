@@ -9,22 +9,28 @@ import greenfoot.*;
  */
 public class Reloj extends Actor
 {
+    private SimpleTimer timer;
+    private Counter valor;
     /**
      * La variable valor se introducira en el contador timer.
      */
-    private SimpleTimer timer;
-    private Counter valor;
     public Reloj()
     {
         valor = new Counter("Tiempo: ");
         timer = new SimpleTimer();
     }
 
+    /**
+     * Agrega el contador del reloj al mundo
+     */
     protected void addedToWorld(World mundo)
     {
         mundo.addObject(valor,650,20);
     }
 
+    /**
+     * Marca cada que pasa un segundo y aumenta el valor del contador
+     */
     public void act() 
     {
         if(timer.millisElapsed()>1000)

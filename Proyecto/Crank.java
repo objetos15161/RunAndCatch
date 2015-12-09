@@ -1,18 +1,13 @@
 import greenfoot.*;
 
 /**
- * Write a description of class Crank here.
+ * Clase del jugador, la cual tiene las mejoras, puntos, y vidas, aparte la animación del mismo
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @oscarvelarde
+ * @1 
  */
 public class Crank extends Actor
 {
-    /**
-     * Act - do whatever the Crank wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-
     private int mejora=0;
     private int mejora1=1;
     private int vel=1;
@@ -51,6 +46,9 @@ public class Crank extends Actor
     private int numvidas=5;
     private int numpuntos=0;
 
+    /**
+     * Crea los contadores de vida y puntos, tambien variables para las imagenes de la animación y sonidos que se reproducen al tocar una mejora
+     */
     public Crank()
     {
         RunWorld mundo = (RunWorld)getWorld();
@@ -78,6 +76,9 @@ public class Crank extends Actor
         vida = new GreenfootSound("vida.mp3");
     }
 
+    /**
+     * Agrega el contador de vidas y puntos al mundo
+     */
     protected void addedToWorld(World mundo)
     {
         mundo.addObject(vidas,70,20);
@@ -85,6 +86,9 @@ public class Crank extends Actor
         mundo.addObject(ivid,145,22);
     }
 
+    /**
+     * Se encarga de verificar si toca una vida para sumarlas, desactivar la garra en caso de tocar un hamster perezoso o ardiente y quitarle la ralentizacion
+     */
     public void act() 
     {
         CheckKeys();
@@ -106,6 +110,9 @@ public class Crank extends Actor
         }
     }    
 
+    /**
+     * Se encarga de verificar el movimiento que quiere hacer el jugador
+     */
     public void CheckKeys()
     {
         x=getX();
@@ -139,6 +146,9 @@ public class Crank extends Actor
 
     }
 
+    /**
+     * Coloca la garra en posicion activada, pero antes verifica si tiene la mejora de la garra o no
+     */
     public void activa()
     {
         if(mejora==1)
@@ -155,6 +165,9 @@ public class Crank extends Actor
         }
     }
 
+    /**
+     * Coloca la garra en posicion DESactivada, pero antes verifica si tiene la mejora de la garra o no
+     */
     public void desactiva()
     {
         if(mejora==1)
@@ -171,17 +184,26 @@ public class Crank extends Actor
         }
     }
 
+    /**
+     * Detiene por completo al personaje
+     */
     public void ralentiza()
     {
         vel=0;
     }
 
+    /**
+     * Aumenta al contador de puntos 
+     */
     public void aumentapuntos(int pun)
     {
         numpuntos=numpuntos+pun;
         puntos.setValue(numpuntos);
     }
 
+    /**
+     * En caso de perder un hamster, o tocar una bala, esta funcion se llama para perder una vida
+     */
     public void restavidas()
     {
         RunWorld mundo = (RunWorld)getWorld();
@@ -190,6 +212,9 @@ public class Crank extends Actor
         vidas.setValue(numvidas);
     }
 
+    /**
+     * En caso de tocar el objeto de la clase vida, aumenta esta en 1
+     */
     public void sumavidas()
     {
         RunWorld mundo = (RunWorld)getWorld();
@@ -198,26 +223,41 @@ public class Crank extends Actor
         vidas.setValue(numvidas);
     }
 
+    /**
+     * Regresa la cantidad actual de vidas
+     */
     public int davidas()
     {
         return numvidas;
     }
 
+    /**
+     * Regresa la cantidad actual de puntos
+     */
     public int dapuntos()
     {
         return numpuntos;
     }
 
+    /**
+     * Regresa la velocidad actual
+     */
     public int davel()
     {
         return vel;
     }
 
+    /**
+     * Regresa la variable que indica si tiene la mejora de la garra
+    */
     public int dagarra()
     {
         return mejora;  
     }
 
+    /**
+     * Funcion que se llama al tocar la mejora de la garra, esto, aumeta el tamaño de la misma
+     */
     public void masgarra()
     {
         RunWorld mundo = (RunWorld)getWorld();
@@ -231,6 +271,9 @@ public class Crank extends Actor
         mejora=1;
     }
 
+    /**
+     * Funcion que se llama al tocar la mejora de la Velocidad, esto duplica la velodicad
+     */
     public void masvel()
     {
         RunWorld mundo = (RunWorld)getWorld();
@@ -244,12 +287,18 @@ public class Crank extends Actor
         vel=2;
         mejora1=2;
     }
-
+    
+    /**
+     * Retira la mejora de la garra
+     */
     public void menosgarra()
     {
         mejora=0;
     }
-
+    
+    /**
+     * Retira la mejora de la velocidad
+     */
     public void menosvel()
     {
         vel=1;

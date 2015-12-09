@@ -21,7 +21,6 @@ public class Menu extends World
      */
     public Menu()
     {    
-        // Crea los botones y selecciona la musica
         super(800, 600, 1); 
         press=new GreenfootSound("boton.wav");
         fondo=new GreenfootSound("menu.mp3");
@@ -32,7 +31,9 @@ public class Menu extends World
         colocar();
     }
 
-    // Coloca los botones
+    /**
+     * Coloca los botones en una posicion especifica
+     */ 
     public void colocar()
     {
         addObject(jugar,609,178);
@@ -42,7 +43,9 @@ public class Menu extends World
 
     }
 
-    // Comprueba si se toco alguno para acceder a otro mundo
+    /**
+     * Comprueba si se toco alguno para acceder a otro mundo
+     */
     public void act()
     {
         fondo.playLoop();

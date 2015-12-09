@@ -11,11 +11,12 @@ import greenfoot.*;
  */
 public class Rocoso extends Hamster
 {
-    /**
-     * La funcion verifica realiza la ralentizacion al Crank si es tocado
-     */
+
     private int r=0;
     private GreenfootSound ral;
+    /**
+     * Toma una velocidad variable tambien elige el sonido que se reproduce al tocarlo
+     */
     public Rocoso()
     {
         ral = new GreenfootSound("tocallamas.wav");
@@ -25,6 +26,9 @@ public class Rocoso extends Hamster
         }
     }
 
+    /**
+     * Realiza un movimiento normal de derecha a izquierda con tambaleo
+     */
     public void act() 
     {
         verifica();
@@ -32,6 +36,9 @@ public class Rocoso extends Hamster
         tambalea();
     }    
 
+    /**
+     * La funcion verifica realiza la ralentizacion al Crank si es tocado, si llega al limite (resta vidas), si toca al crank(aumenta puntos)
+     */
     public void verifica()
     {
         RunWorld mundo = (RunWorld)getWorld();
@@ -54,6 +61,9 @@ public class Rocoso extends Hamster
         }
     } 
 
+    /**
+     * Funcion que se hereda al ardiente y tambien se usa en este, reproduce el sonido al tocarlo
+     */
     public void quema()
     {
         ral.play();

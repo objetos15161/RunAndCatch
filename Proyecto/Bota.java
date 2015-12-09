@@ -11,23 +11,28 @@ import greenfoot.*;
  */
 public class Bota extends Items
 {
+
+    private int x;
     /**
      * Al aparecer se mueve de derecha a izquierda.
-     * Recibe al crank para hacerle la mejora si es necesario.
      */
-    private int x;
     public void act() 
     {
         mover();
         mejora();
     }    
 
+    /**
+     * Recibe al crank para hacerle la mejora si es necesario
+     * Al tocar al Crank otorga la mejora de mas velocidad
+     * pero da menos garra al crank ya que solo
+     * 1 de las 2 mejoras puede estar activada a la vez.
+     */
     public void mejora()
     {
         RunWorld mundo = (RunWorld)getWorld();
         Crank c = mundo.dimeCrank();  
         x=getX();
-        //Desactiva la mejora de la garra en caso de que esté activada
         if(isTouching(Crank.class))
         {
             c.menosgarra();

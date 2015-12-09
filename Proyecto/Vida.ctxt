@@ -1,6 +1,8 @@
 #BlueJ class context
 comment0.params=
 comment0.target=void\ act()
+comment0.text=\r\n\ Al\ aparecer\ se\ mueve\ de\ derecha\ a\ izquierda\ \r\n
 comment1.params=
 comment1.target=void\ limite()
+comment1.text=\r\n\ Al\ llegar\ al\ extremo\ del\ mapa\ se\ elimina\r\n
 numComments=2

@@ -15,9 +15,11 @@ public class RunRecord extends World
      * Constructor de la pantalla de records
      * 
      */
+    /**
+     * Define el sonido, y crea el boton de salir, tambien crea la tabla de records
+     */
     public RunRecord()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1); 
         score=new ScoreBoard(600, 400);
         fondo=new GreenfootSound("record.mp3");
@@ -26,13 +28,18 @@ public class RunRecord extends World
 
     }
 
-    // Coloca el boton de salida y la pantalla de records
+    /**
+     * Coloca el boton de salida y la pantalla de records
+     */
     public void colocar()
     {
         addObject(salir,750,50);
         addObject(score,400,300);
     }
 
+    /**
+     * Reproduce la musica de fondo y la detiene hasta que toques algun boton
+     */
     public void act()
     {
         fondo.play();

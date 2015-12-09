@@ -1,8 +1,11 @@
 #BlueJ class context
 comment0.params=
 comment0.target=Helado()
+comment0.text=\r\n\ Elige\ el\ sonido\ que\ se\ reproducira\ en\ caso\ de\ tocar\ al\ hamster\ cuando\ tiene\ \r\n\ el\ contorno\ azul,\ el\ cual,\ simboliza\ un\ escudo\ de\ hielo\r\n
 comment1.params=
 comment1.target=void\ act()
+comment1.text=\r\n\ Toma\ del\ mundo\ los\ segundos\ actuales\ y\ usa\ los\ metodos\ de\ su\ superclase\r\n
 comment2.params=
 comment2.target=void\ verifica()
+comment2.text=\r\n\ Se\ encarga\ de\ verificar\ si\ el\ hamster\ llego\ al\ limite\ (quita\ una\ vida),\ toc\u00F3\ al\ personaje\ \ (aumenta\ puntos),\ si\ tiene\ el\ aura\ azul\r\n\ y\ es\ tocado\ reproduce\ el\ sonido\ de\ romper,\ y\ corre\ hacia\ adelante\ esperando\ ser\ atrapado\ de\ nuevo\r\n
 numComments=3

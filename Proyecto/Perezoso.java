@@ -10,14 +10,14 @@ import greenfoot.*;
  */
 public class Perezoso extends Hamster
 {
-    /**
-     * La variable direccion cambia al hacer la validacion, que, al llegar
-     * a la mitad del mapa comenzara a desplazarse al lado contrario.
-     */
     private int dir=-2;
     private int band=0;
     private int ran;
     private int seg;
+    /**
+     * La variable direccion cambia al hacer la validacion, que, al llegar
+     * a la mitad del mapa comenzara a desplazarse al lado contrario.
+     */
     public void act() 
     {
         RunWorld mundo = (RunWorld)getWorld();
@@ -27,6 +27,9 @@ public class Perezoso extends Hamster
         tambalea();
     }    
 
+    /**
+     * Al llegar a la mitad del mapa, despierta y corre hacia adelante para despues volver a dormir
+     */
     public void mueve()
     {
         int x;
@@ -44,6 +47,9 @@ public class Perezoso extends Hamster
         }    
     }
 
+    /**
+     * Se encarga de verificar si el hamster llego al limite (quita una vida), tocó al personaje  (aumenta puntos)
+     */
     public void verifica()
     {
         RunWorld mundo = (RunWorld)getWorld();

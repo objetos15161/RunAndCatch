@@ -11,20 +11,23 @@ import greenfoot.*;
  */
 public class Helado extends Hamster
 {
-    /**
-     * Act - do whatever the Helado wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
     private GreenfootSound rompe;
     private int seg;
     private int ran;
     private int vel=-2;
     private int band=0;
+    /**
+     * Elige el sonido que se reproducira en caso de tocar al hamster cuando tiene 
+     * el contorno azul, el cual, simboliza un escudo de hielo
+     */
     public Helado()
     {
         rompe=new GreenfootSound("rompe.wav");
     }
 
+    /**
+     * Toma del mundo los segundos actuales y usa los metodos de su superclase
+     */
     public void act() 
     {
         RunWorld mundo = (RunWorld)getWorld();
@@ -34,6 +37,10 @@ public class Helado extends Hamster
         move(vel);
     }    
 
+    /**
+     * Se encarga de verificar si el hamster llego al limite (quita una vida), tocó al personaje  (aumenta puntos), si tiene el aura azul
+     * y es tocado reproduce el sonido de romper, y corre hacia adelante esperando ser atrapado de nuevo
+     */
     public void verifica()
     {
         RunWorld mundo = (RunWorld)getWorld();

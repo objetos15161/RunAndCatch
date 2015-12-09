@@ -82,10 +82,12 @@ public class RunWorld extends World
         addObject(crank,200,400);
         addObject(nivel,520,20);
     }
-
+ 
+    /**
+     * Creacion de los objetos necesarios para este mundo
+     */
     public void prepararObjetos()
     {
-        //Creacion de los objetos necesarios para este mundo
         crank = new Crank();
         //records=new OrdRecords();
         gameover=new GameOver();
@@ -111,7 +113,10 @@ public class RunWorld extends World
         salir = new Salir();
 
     }
-
+    
+    /**
+     * Se encarga de hacer la presentación de los niveles, colocar mejoras, balas y vidas, y verificar si se acabó el juego
+     */
     public void act()
     {
         //cada que se cambia de nivel se hace una presentacion de cada uno de ellos
@@ -150,9 +155,12 @@ public class RunWorld extends World
         cambiaNivel();
     }
 
+    /**
+     * Se agrega aleatoriamente 3 tipos distintos de arboles para simular el scroll
+     */
     public void scroll()
     {
-        //Se agrega aleatoriamente 3 tipos distintos de arboles para simular el scroll        
+                
         if ( Greenfoot.getRandomNumber(1000) < 3)
             creaArbol1();
         if ( Greenfoot.getRandomNumber(1000) < 4)
@@ -161,9 +169,11 @@ public class RunWorld extends World
             creaArbol3();    
     }
 
+    /**
+     * Hace el cambio en el Contador del mundo y en la variable niv, esto lo hace por minuto hasta el nivel 5
+     */
     public void cambiaNivel()
     {   
-        //Hace el cambio en el Contador del mundo y en la variable niv, esto lo hace por minuto hasta el nivel 5
         if(segundos<=59)
         {
             niv=1;
@@ -196,9 +206,11 @@ public class RunWorld extends World
         }
     }
 
+    /**
+     * se crean hamsters normales y perezosos en sitios aleatorios y se cambia el fondo del mundo
+     */
     public void nivel1()
     {
-        //se crean hamsters normales y perezosos en sitios aleatorios y se cambia el fondo del mundo
         int ran=300;
         int ran1=300;
         setBackground("fondo1.jpg");
@@ -216,9 +228,11 @@ public class RunWorld extends World
         }
     }
 
+    /**
+     * se crean hamsters normales y helados en sitios aleatorios y se cambia el fondo del mundo
+     */
     public void nivel2()
     {
-        //se crean hamsters normales y helados en sitios aleatorios y se cambia el fondo del mundo
         int ran=300;
         int ran1=300;
         setBackground("fondo3.jpg");
@@ -236,9 +250,11 @@ public class RunWorld extends World
         }
     }
 
+    /**
+     * se crean hamsters normales y rocosos en sitios aleatorios y se cambia el fondo del mundo
+     */
     public void nivel3()
     {
-        //se crean hamsters normales y rocosos en sitios aleatorios y se cambia el fondo del mundo
         int ran=300;
         int ran1=300;
         setBackground("fondo2.jpg");
@@ -256,9 +272,11 @@ public class RunWorld extends World
         }
     }
 
+    /**
+     * se crean hamsters normales y ardientes en sitios aleatorios y se cambia el fondo del mundo
+     */
     public void nivel4()
     {
-        //se crean hamsters normales y ardientes en sitios aleatorios y se cambia el fondo del mundo
         int ran=300;
         int ran1=300;
         setBackground("fondo4.jpg");
@@ -276,9 +294,11 @@ public class RunWorld extends World
         }
     }
 
+    /**
+     * se crean hamsters normales y de cualquier tipo en sitios aleatorios y se cambia el fondo del mundo
+     */
     public void nivel5()
     {
-        //se crean hamsters normales y de cualquier tipo en sitios aleatorios y se cambia el fondo del mundo
         int ran=300;
         int ran1=300;
         int tipo;
@@ -315,12 +335,17 @@ public class RunWorld extends World
         }
     }
 
-    //Las funciones siguientes regresan los segundos y el nivel actual, esto ayuda a algunas otras clases a definir un comportamiento distinto
+    /**
+     * Regresa los segundos actuales
+     */
     public int dasegundos()
     {
         return(segundos);
     }
 
+    /**
+     * Regresa el nivel actual
+     */
     public int danivel()
     {
         return(niv);
@@ -328,15 +353,17 @@ public class RunWorld extends World
 
     //Esta ayuda a otras clases en caso de hacer un cambio en el jugador
 
+    /**
+     * Da la variable que se ejecuta con el jugador
+     */
     public Crank dimeCrank()
     {
         return crank;
     }
 
-    /*La funcion presenta muestra una pantalla con el nivel que se jugará y crea los lobos que tambien cambian segun el nivel, tambien reproduce 
+    /**La funcion presenta muestra una pantalla con el nivel que se jugará y crea los lobos que tambien cambian segun el nivel, tambien reproduce 
      * la musica que es distinta en cada nivel
      */
-
     public void presenta()
     {
         int indi;
@@ -444,56 +471,82 @@ public class RunWorld extends World
 
     }
 
-    //Las funciones siguientes crean objetos cada vez que sean llamados, esto ayuda a no crear muchas variables para objetos del mismo tipo
-
+    
+    /**
+     * Crea arbol de tipo 1
+     */
     private void creaArbol1()
     {
         Arbol1 a1= new Arbol1();
         addObject(a1,800,540);
     }
 
+    /**
+     * Crea arbol de tipo 2
+     */
     private void creaArbol2()
     {
         Arbol2 a2= new Arbol2();
         addObject(a2,800,560);
     }
 
+    /**
+     * Crea arbol de tipo 3
+     */
     private void creaArbol3()
     {
         Arbol3 a3= new Arbol3();
         addObject(a3,800,550);
     }
 
+    /**
+     * Crea hamster normal
+     */
     public void creanormal(int num)
     {
         hamster = new Hamster();
         addObject(hamster,750,num);
     }
 
+    /**
+     * Crea hamster helado
+     */
     public void creahielo(int num)
     {
         helado = new Helado();
         addObject(helado,750,num);
     }
 
+    /**
+     * Crea hamster rocoso
+     */
     public void crearocoso(int num)
     {
         rocoso = new Rocoso();
         addObject(rocoso,750,num);
     }
-
+    
+    /**
+     * Crea hamster perezoso
+     */
     public void creaperezoso(int num)
     {
         perezoso = new Perezoso();
         addObject(perezoso,750,num);
     }
 
+    /**
+     * Crea hamster ardiente
+     */
     public void creaardiente(int num)
     {
         ardiente = new Ardiente();
         addObject(ardiente,750,num);
     }
 
+    /**
+     * Crea los lobos, los cuales cambian dependiendo el nivel
+     */
     public void crealobo(int x, int y,int indi)
     {
         if(indi==1)
@@ -527,6 +580,9 @@ public class RunWorld extends World
 
     }
 
+    /**
+     * Crea una vida y se inserta aleatoriamente
+     */
     public void creavida()
     {
         int x;
@@ -535,6 +591,9 @@ public class RunWorld extends World
         addObject(vida,750,x+120);
     }
 
+    /**
+     * Crea una bala y se inserta aleatoriamente
+     */
     public void creabala()
     {
         int x;
@@ -543,6 +602,9 @@ public class RunWorld extends World
         addObject(bala,750,x+120);
     }
 
+    /**
+     * Crea las mejoras en una posicion especifica
+     */
     public void creamejoras()
     {
         garra = new Garra();
@@ -551,7 +613,9 @@ public class RunWorld extends World
         addObject(bota,750,400);
     }
 
-    //Esta funcion detiene todo y muestra una pantalla con un gif de Juego Terminado y un botón que te regresa al menu principal si es tocado
+    /**
+     * Esta funcion detiene todo y muestra una pantalla con un gif de Juego Terminado y un botón que te regresa al menu principal si es tocado
+     */
     public void findejuego()
     {
         s1.stop();

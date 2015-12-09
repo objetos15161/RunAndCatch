@@ -1,9 +1,11 @@
 #BlueJ class context
 comment0.params=
 comment0.target=RunRecord()
-comment0.text=\r\n\ Constructor\ de\ la\ pantalla\ de\ records\r\n\ \r\n
+comment0.text=\r\n\ Define\ el\ sonido,\ y\ crea\ el\ boton\ de\ salir,\ tambien\ crea\ la\ tabla\ de\ records\r\n
 comment1.params=
 comment1.target=void\ colocar()
+comment1.text=\r\n\ Coloca\ el\ boton\ de\ salida\ y\ la\ pantalla\ de\ records\r\n
 comment2.params=
 comment2.target=void\ act()
+comment2.text=\r\n\ Reproduce\ la\ musica\ de\ fondo\ y\ la\ detiene\ hasta\ que\ toques\ algun\ boton\r\n
 numComments=3

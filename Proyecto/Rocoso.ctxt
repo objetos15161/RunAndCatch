@@ -1,10 +1,14 @@
 #BlueJ class context
 comment0.params=
 comment0.target=Rocoso()
+comment0.text=\r\n\ Toma\ una\ velocidad\ variable\ tambien\ elige\ el\ sonido\ que\ se\ reproduce\ al\ tocarlo\r\n
 comment1.params=
 comment1.target=void\ act()
+comment1.text=\r\n\ Realiza\ un\ movimiento\ normal\ de\ derecha\ a\ izquierda\ con\ tambaleo\r\n
 comment2.params=
 comment2.target=void\ verifica()
+comment2.text=\r\n\ La\ funcion\ verifica\ realiza\ la\ ralentizacion\ al\ Crank\ si\ es\ tocado,\ si\ llega\ al\ limite\ (resta\ vidas),\ si\ toca\ al\ crank(aumenta\ puntos)\r\n
 comment3.params=
 comment3.target=void\ quema()
+comment3.text=\r\n\ Funcion\ que\ se\ hereda\ al\ ardiente\ y\ tambien\ se\ usa\ en\ este,\ reproduce\ el\ sonido\ al\ tocarlo\r\n
 numComments=4

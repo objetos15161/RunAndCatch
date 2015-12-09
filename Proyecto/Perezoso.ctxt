@@ -1,8 +1,11 @@
 #BlueJ class context
 comment0.params=
 comment0.target=void\ act()
+comment0.text=\r\n\ La\ variable\ direccion\ cambia\ al\ hacer\ la\ validacion,\ que,\ al\ llegar\r\n\ a\ la\ mitad\ del\ mapa\ comenzara\ a\ desplazarse\ al\ lado\ contrario.\r\n
 comment1.params=
 comment1.target=void\ mueve()
+comment1.text=\r\n\ Al\ llegar\ a\ la\ mitad\ del\ mapa,\ despierta\ y\ corre\ hacia\ adelante\ para\ despues\ volver\ a\ dormir\r\n
 comment2.params=
 comment2.target=void\ verifica()
+comment2.text=\r\n\ Se\ encarga\ de\ verificar\ si\ el\ hamster\ llego\ al\ limite\ (quita\ una\ vida),\ toc\u00F3\ al\ personaje\ \ (aumenta\ puntos)\r\n
 numComments=3

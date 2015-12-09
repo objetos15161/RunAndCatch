@@ -20,12 +20,18 @@ public class Bala extends Actor
         bala=new GreenfootSound("bala.wav");
     }
 
+    /**
+     * Se encarga del movimiento de la bala y de llamar la funcion que valida si toco al personaje
+     */
     public void act() 
     {
         move(-5);
         mata();
     }    
 
+    /**
+     * Se encarga de validar si toca al personaje y le baja una vida en caso de hacerlo
+     */
     public void mata()
     {
         RunWorld mundo = (RunWorld)getWorld();

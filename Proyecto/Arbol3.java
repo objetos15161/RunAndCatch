@@ -10,12 +10,19 @@ public class Arbol3 extends Scroll
 {
     private int niv;
     private int x;
+    
+    /**
+     * Al aparecer, se mueve de izquierda a derecha 
+     */
     public void act() 
     {
         move(-3);
         verifica();
     }    
 
+    /**
+     * Se encarga de validar en que nivel se encuentra y hace el cambio del tipo de arbol 
+     */
     public void verifica()
     {
         RunWorld mundo = (RunWorld)getWorld();

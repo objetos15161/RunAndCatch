@@ -1,9 +1,10 @@
 #BlueJ class context
 comment0.params=
 comment0.target=void\ act()
-comment0.text=\r\n\ Act\ -\ do\ whatever\ the\ Items\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
 comment1.params=
 comment1.target=void\ mover()
+comment1.text=\r\n\ Funcion\ para\ el\ movimiento\ de\ las\ subclases\ de\ esta\ clase\r\n
 comment2.params=
 comment2.target=void\ tambalea()
+comment2.text=\r\n\ Hace\ un\ movimiento\ para\ las\ subclases\ de\ esta\r\n
 numComments=3

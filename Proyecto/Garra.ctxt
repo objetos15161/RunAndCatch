@@ -1,6 +1,8 @@
 #BlueJ class context
 comment0.params=
 comment0.target=void\ act()
+comment0.text=\r\n\ Al\ aparecer\ se\ mueve\ de\ derecha\ a\ izquierda\ y\ al\ tocar\ al\ Crank\ otorga\r\n\ las\ mejoras.\r\n
 comment1.params=
 comment1.target=void\ mejora()
+comment1.text=\r\n\ Recibe\ al\ crank\ para\ hacerle\ la\ mejora\ si\ es\ necesario\r\n\ Al\ tocar\ al\ Crank\ otorga\ la\ mejora\ de\ mas\ garra\r\n\ pero\ da\ menos\ velocidad\ al\ crank\ ya\ que\ solo\r\n\ 1\ de\ las\ 2\ mejoras\ puede\ estar\ activada\ a\ la\ vez.\r\n
 numComments=2

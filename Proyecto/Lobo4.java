@@ -11,8 +11,7 @@ public class Lobo4 extends Lobo
     GifImage lobo = new GifImage("lobo4.gif");
     private int niv;
     /**
-     * Act - do whatever the Lobo1 wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Hace los cambios en la imagen del lobo del nivel 4 para la animación
      */
     public void act() 
     {
@@ -20,6 +19,9 @@ public class Lobo4 extends Lobo
         verifica();
     }    
 
+    /**
+     * Si termina el nivel que corresponde a este, se elimina
+     */
     public void verifica()
     {
         RunWorld mundo = (RunWorld)getWorld();

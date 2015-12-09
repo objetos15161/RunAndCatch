@@ -1,0 +1,44 @@
+Class documentation
+<---- javadoc command: ---->
+C:\Users\OscarDaniel\Desktop\Greenfoot\jdk\bin\javadoc.exe
+-author
+-version
+-nodeprecated
+-protected
+-noindex
+-notree
+-nohelp
+-nonavbar
+-source
+1.8
+-classpath
+C:\Users\OscarDaniel\Desktop\Greenfoot\lib\extensions\greenfoot.jar;C:\Users\OscarDaniel\Desktop\Greenfoot\lib\bluejcore.jar;C:\Users\OscarDaniel\Desktop\Greenfoot\lib\bluejeditor.jar;C:\Users\OscarDaniel\Desktop\Greenfoot\lib\bluejext.jar;C:\Users\OscarDaniel\Desktop\Greenfoot\lib\AppleJavaExtensions.jar;C:\Users\OscarDaniel\Desktop\Greenfoot\lib\junit-4.8.2.jar;C:\Users\OscarDaniel\Desktop\Greenfoot\lib\bluej.jar;C:\Users\OscarDaniel\Desktop\Greenfoot\lib\commons-httpclient-3.1.jar;C:\Users\OscarDaniel\Desktop\Greenfoot\lib\commons-logging-api-1.1.2.jar;C:\Users\OscarDaniel\Desktop\Greenfoot\lib\commons-codec-1.3.jar;C:\Users\OscarDaniel\Desktop\Greenfoot\lib\jl1.0.1.jar;C:\Users\OscarDaniel\Desktop\Greenfoot\lib\opencsv-2.3.jar;C:\Users\OscarDaniel\Desktop\RunAndCatch\Proyecto
+-d
+C:\Users\OscarDaniel\Desktop\RunAndCatch\Proyecto\doc
+-encoding
+UTF-8
+-charset
+UTF-8
+-docletpath
+C:\Users\OscarDaniel\Desktop\Greenfoot\lib\bjdoclet.jar
+-doclet
+bluej.doclet.doclets.formats.html.HtmlDoclet
+C:\Users\OscarDaniel\Desktop\RunAndCatch\Proyecto\Rocoso.java
+<---- end of javadoc command ---->
+Loading source file C:\Users\OscarDaniel\Desktop\RunAndCatch\Proyecto\Rocoso.java...
+Constructing Javadoc information...
+Standard Doclet version 1.8.0_31
+Building tree for all the packages and classes...
+Generating C:\Users\OscarDaniel\Desktop\RunAndCatch\Proyecto\doc\Rocoso.html...
+C:\Users\OscarDaniel\Desktop\RunAndCatch\Proyecto\Rocoso.java:12: warning - @oscarvelarde is an unknown tag.
+C:\Users\OscarDaniel\Desktop\RunAndCatch\Proyecto\Rocoso.java:12: warning - @1 is an unknown tag.
+Generating C:\Users\OscarDaniel\Desktop\RunAndCatch\Proyecto\doc\package-frame.html...
+Generating C:\Users\OscarDaniel\Desktop\RunAndCatch\Proyecto\doc\package-summary.html...
+Generating C:\Users\OscarDaniel\Desktop\RunAndCatch\Proyecto\doc\constant-values.html...
+Building index for all the packages and classes...
+Building index for all classes...
+Generating C:\Users\OscarDaniel\Desktop\RunAndCatch\Proyecto\doc\allclasses-frame.html...
+Generating C:\Users\OscarDaniel\Desktop\RunAndCatch\Proyecto\doc\allclasses-noframe.html...
+Generating C:\Users\OscarDaniel\Desktop\RunAndCatch\Proyecto\doc\index.html...
+Generating C:\Users\OscarDaniel\Desktop\RunAndCatch\Proyecto\doc\stylesheet.css...
+2 warnings

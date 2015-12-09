@@ -1,5 +1,5 @@
 #BlueJ class context
 comment0.params=
 comment0.target=void\ act()
-comment0.text=\r\n\ Act\ -\ do\ whatever\ the\ Lobo1\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
+comment0.text=\r\n\ Hace\ los\ cambios\ en\ la\ imagen\ del\ lobo\ de\ nivel\ 5,\ a\ diferencia\ del\ resto,\ este\ no\ se\r\n\ elimina\ ya\ que\ es\ el\ ultimo\r\n
 numComments=1

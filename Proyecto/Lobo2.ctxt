@@ -1,6 +1,8 @@
 #BlueJ class context
 comment0.params=
 comment0.target=void\ act()
+comment0.text=\r\n\ Hace\ los\ cambios\ e\ la\ imagen\ para\ la\ animaci\u00F3n\ del\ lobo\ del\ nivel\ 2\r\n
 comment1.params=
 comment1.target=void\ verifica()
+comment1.text=\r\n\ Si\ termina\ el\ nivel\ que\ corresponde\ a\ este,\ se\ elimina\r\n
 numComments=2

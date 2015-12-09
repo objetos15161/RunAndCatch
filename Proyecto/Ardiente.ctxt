@@ -1,8 +1,11 @@
 #BlueJ class context
 comment0.params=
 comment0.target=Ardiente()
+comment0.text=\r\n\ Se\ usa\ un\ timer\ para\ tomar\ el\ tiempo\ de\ encendido\ y\ apagado\r\n
 comment1.params=
 comment1.target=void\ act()
+comment1.text=\r\n\ La\ diferecia\ es\ la\ bandera\ que\ indica\ si\ esta\ encendido\ y\ apagado,\r\n\ y\ en\ base\ a\ esto\ ralentiza\ o\ no\ al\ Crank.\r\n
 comment2.params=
 comment2.target=void\ verifica()
+comment2.text=\r\n\ Verifica\ si\ el\ hamster\ es\ tocado\ por\ el\ crank(aumenta\ puntos),\ \r\n\ llega\ al\ limite\ (resta\ vidas)\ y\ si\ toca\ a\ un\ hamster\ encendido\r\n\ o\ no.\r\n
 numComments=3
